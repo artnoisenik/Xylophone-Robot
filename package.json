@@ -12,6 +12,7 @@
     "express": "~4.13.1",
     "knex": "^0.11.4",
     "morgan": "~1.6.1",
+    "node-static": "^0.7.7",
     "pg": "^4.5.5",
     "serve-favicon": "~2.3.0"
   }
