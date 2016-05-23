@@ -17,8 +17,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//all http requests need to start with /api/v1
 app.use('/api/v1/', api);
 
+// wildcard route sends index.html on every request to make sure angular is given to the //client
 app.all('*', function(req, res, next) {
   res.sendFile('index.html', { root: __dirname + '/public/' });
 });
