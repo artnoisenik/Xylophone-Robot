@@ -8,22 +8,11 @@
   angular.module('app', dependencies)
     .config(setupRoutes)
     .run(stateChange)
-    .factory('mySocket', mySocket)
-    .controller('ArduController', ArduController)
+    .controller('MainController', MainController);
 
-    .controller('MainController', function($scope){
-
-        socket.on('test', function(data){
-            console.log('test', data);
-            $scope.messages = data;
-            $scope.$apply();
-        })
-
-        socket.emit('messageFeed', {message: 'message'});
-    });
 
   setupRoutes.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
-  ArduController.$in1ject = ['$scope'];
+  MainController.$inject = ['$scope'];
 
   function setupRoutes($stateProvider, $urlRouterProvider, $locationProvider){
     $locationProvider.html5Mode(true);
@@ -39,11 +28,15 @@
       })
       .state('signin', {
         url: "/login",
-        templateUrl: "/templates/login.html"
+        templateUrl: "/templates/login.html",
+        controllerAs: 'auth',
+        controller: 'AuthCtrl'
       })
       .state('login', {
         url: "/signup",
-        templateUrl: "/templates/signup.html"
+        templateUrl: "/templates/signup.html",
+        controllerAs: 'auth',
+        controller: 'AuthCtrl'
       })
   }
 
@@ -56,16 +49,17 @@
         event.preventDefault();
         $state.go('home');
       }
-
     });
   }
 
-  function mySocket () {
-    // san - add socket functionality here
-  }
+  function MainController ($scope){
+    socket.on('test', function(data){
+      console.log('test', data);
+      $scope.messages = data;
+      $scope.$apply();
+    })
 
-  function ArduController(mySocket) {
-    // brad - add arduino functionality here
+    socket.emit('messageFeed', {message: 'message'});
   };
 
 }());
