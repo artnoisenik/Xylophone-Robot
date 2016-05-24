@@ -17,7 +17,7 @@ h1 {
 .chordsTitle {
   font-size: 32px;
   color: hotpink;
-  margin-top: 20px;
+  margin-top: 6%;
 }
 
 .chords {
@@ -61,6 +61,29 @@ div.notes:active {
   margin-bottom: 15px;
 }
 
+<<<<<<< HEAD
 .songList {
+=======
+.dummySignup {
+  float: right;
+  margin-top: -5%;
+  margin-right: -10%;
+}
+
+footer {
+  position: fixed;
+  bottom: 0%;
+  right: 0%;
+  left: 0%;
+}
+
+.authors {
+
+}
+
+.authors li {
+  list-style-type: none;
+  display: inline;
+>>>>>>> d65932594c99efa3969b3f0da6aab95d8bcbda28
   color: white;
 }

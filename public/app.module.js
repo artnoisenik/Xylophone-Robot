@@ -2,19 +2,32 @@
   'use strict';
 
   var dependencies = [
-    'ui.router'
+    'ui.router',
   ];
 
   angular.module('app', dependencies)
     .config(setupRoutes)
-    .run(stateChange);
+    .run(stateChange)
+    .factory('mySocket', mySocket)
+    .controller('ArduController', ArduController)
+
+    .controller('MainController', function($scope){
+
+        socket.on('test', function(data){
+            console.log('test', data);
+            $scope.messages = data;
+            $scope.$apply();
+        })
+
+        socket.emit('messageFeed', {message: 'message'});
+    });
 
   setupRoutes.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
+  ArduController.$in1ject = ['$scope'];
 
   function setupRoutes($stateProvider, $urlRouterProvider, $locationProvider){
     $locationProvider.html5Mode(true);
     $urlRouterProvider.otherwise("/");
-
     $stateProvider
       .state('home', {
         url: "/",
@@ -46,5 +59,13 @@
 
     });
   }
+
+  function mySocket () {
+    // san - add socket functionality here
+  }
+
+  function ArduController(mySocket) {
+    // brad - add arduino functionality here
+  };
 
 }());
