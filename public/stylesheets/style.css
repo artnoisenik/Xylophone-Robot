@@ -29,9 +29,9 @@ h1 {
   border-radius: 10px;
 }
 
-.chords:click {
-
-}
+div.chords:active {
+    background-color: hotpink;
+    }
 
 .notesTitle {
   font-size: 32px;
@@ -47,6 +47,14 @@ h1 {
   padding: 2%;
   border-radius: 10px;
 }
+
+.notes:first-child {
+  margin-left: 58px;
+}
+
+div.notes:active {
+    background-color: peachpuff;
+    }
 
 .sequenceForm {
   margin-top: 15px;
