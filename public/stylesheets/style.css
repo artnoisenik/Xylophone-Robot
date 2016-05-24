@@ -1,8 +1,42 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: 'Quicksand', sans-serif;
+  background-image: url("background2.jpg");
 }
 
 a {
   color: #00B7FF;
+}
+
+h1 {
+  color: #e600e6;
+  font-size: 50px;
+
+}
+
+.chords {
+  color: #ffffff;
+  border: 2px solid white;
+  display: inline-block;
+  margin-left: 3%;
+  padding: 2%;
+  border-radius: 10px;
+}
+
+.chords:click {
+
+}
+
+.notes {
+  color: #ffffff;
+  border: 2px solid white;
+  display: inline-block;
+  margin-left: 3%;
+  padding: 2%;
+  border-radius: 10px;
+}
+
+.sequenceForm {
+  float:left;
+
 }
