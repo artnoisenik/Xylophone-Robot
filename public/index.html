@@ -30,9 +30,16 @@
     <div class="page-header">
       <h1>BM Machine <small>The Brown Note Experience</small></h1>
     </div>
-      <section class="container">
-          <button>DA BROWN NOTE</button>
-          <div ui-view></div>
-      </section>
+    <section class="container">
+      <button>DA BROWN NOTE</button>
+      <div ui-view></div>
+    </section>
+
+    <hr>
+    <h1>TESTING ARDUINO CTRLS</h1>
+      <div ng-controller="ArduController">
+        <button ng-click="ledOn()">On</button>
+        <button ng-click="ledOff()">Off</button>
+      </div>
   </body>
 </html>

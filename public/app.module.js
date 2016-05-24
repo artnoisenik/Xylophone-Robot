@@ -2,14 +2,18 @@
   'use strict';
 
   var dependencies = [
-    'ui.router'
+    'ui.router',
+    'btford.socket-io'
   ];
 
   angular.module('app', dependencies)
     .config(setupRoutes)
-    .run(stateChange);
+    .run(stateChange)
+    .factory('mySocket', mySocket)
+    .controller('ArduController', ArduController);
 
   setupRoutes.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
+  ArduController.$inject = ['$scope'];
 
   function setupRoutes($stateProvider, $urlRouterProvider, $locationProvider){
     $locationProvider.html5Mode(true);
@@ -46,5 +50,21 @@
 
     });
   }
+
+  function mySocket (socketFactory) {
+    return socketFactory();
+  }
+
+  function ArduController($scope ,mySocket) {
+    $scope.ledOn = function () {
+      mySocket.emit('led:on');
+      console.log('LED ON');
+    };
+
+    $scope.ledOff = function () {
+      mySocket.emit('led:off');
+      console.log('LED OFF');
+    };
+  };
 
 }());
