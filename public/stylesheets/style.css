@@ -9,8 +9,9 @@ a {
 }
 
 h1 {
-  color: #e600e6;
+  /*color: #e600e6;*/
   font-size: 50px;
+  color: orange;
 
 }
 
