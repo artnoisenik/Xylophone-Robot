@@ -28,11 +28,15 @@
       })
       .state('signin', {
         url: "/login",
-        templateUrl: "/templates/login.html"
+        templateUrl: "/templates/login.html",
+        controllerAs: 'auth',
+        controller: 'AuthCtrl'
       })
       .state('login', {
         url: "/signup",
-        templateUrl: "/templates/signup.html"
+        templateUrl: "/templates/signup.html",
+        controllerAs: 'auth',
+        controller: 'AuthCtrl'
       })
   }
 
