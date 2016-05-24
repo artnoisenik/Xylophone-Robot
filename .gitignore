@@ -38,3 +38,6 @@ jspm_packages
 
 # git stuff
 .git
+
+#enviroment file
+.env
