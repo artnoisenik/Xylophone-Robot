@@ -6,13 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>BM Machine</title>
 
+    <!-- jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+
+    <!-- angular -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js" charset="utf-8"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.min.js"></script>
+
+    <!-- bootstrap -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+    <!-- stylesheets -->
     <link href='https://fonts.googleapis.com/css?family=Nunito|Asap|Quicksand|Comfortaa|Rubik' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="/stylesheets/style.css" media="screen" title="no title" charset="utf-8">
+
+    <!-- socket.io -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script>var socket = io();</script>
+
     <script src="./app.module.js"></script>
     <script src="./auth/jwtservice.js"></script>
     <script src="./auth/userservice.js"></script>
@@ -20,17 +32,26 @@
     <base href="/" />
 
   </head>
-  <body>
-
-
+  <body ng-controller="MainController">
 
     <div class="page-header">
-  <h1>BM Machine <small>The Brown Note Experience</small></h1>
-  </div>
+      <h1>BM Machine <small>The Brown Note Experience</small></h1>
+    </div>
     <section class="container">
+      <div ui-view></div>
+      <button>DA BROWN NOTE</button>
 
-        <button>DA BROWN NOTE</button>
-        <div ui-view></div>
+      <footer class="footie">
+        <ul class="authors">
+          <li>Courtney Morrissey</li>
+          <li>Bradley Butterfield</li>
+          <li>Philip Ray Skaggs Jr.</li>
+          <li>Conrad Graham Bailey</li>
+          <li>Blake Netzeband</li>
+          <li>Şan Güyer</li>
+        </ul>
+      </footer>
+
     </section>
 
   </body>

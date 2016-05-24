@@ -2,19 +2,21 @@
   'use strict';
 
   var dependencies = [
-    'ui.router'
+    'ui.router',
   ];
 
   angular.module('app', dependencies)
     .config(setupRoutes)
-    .run(stateChange);
+    .run(stateChange)
+    .controller('MainController', MainController);
+
 
   setupRoutes.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
+  MainController.$inject = ['$scope'];
 
   function setupRoutes($stateProvider, $urlRouterProvider, $locationProvider){
     $locationProvider.html5Mode(true);
     $urlRouterProvider.otherwise("/");
-
     $stateProvider
       .state('home', {
         url: "/",
@@ -47,8 +49,17 @@
         event.preventDefault();
         $state.go('home');
       }
-
     });
   }
+
+  function MainController ($scope){
+    socket.on('test', function(data){
+      console.log('test', data);
+      $scope.messages = data;
+      $scope.$apply();
+    })
+
+    socket.emit('messageFeed', {message: 'message'});
+  };
 
 }());
