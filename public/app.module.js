@@ -24,6 +24,14 @@
         url: "/loggedin",
         templateUrl: "/templates/user_view.html"
       })
+      .state('signin', {
+        url: "/login",
+        templateUrl: "/templates/login.html"
+      })
+      .state('login', {
+        url: "/signup",
+        templateUrl: "/templates/signup.html"
+      })
   }
 
   function stateChange($rootScope, $state, $window) {
