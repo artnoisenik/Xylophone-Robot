@@ -2,6 +2,7 @@ body {
   padding: 50px;
   font-family: 'Quicksand', sans-serif;
   background-image: url("background2.jpg");
+  height: 100%;
 }
 
 a {
@@ -57,10 +58,22 @@ div.notes:active {
     }
 
 .sequenceForm {
-  margin-top: 15px;
-  margin-bottom: 15px;
+  margin-top: 4%;
 }
 
+.orangeBtn {
+  background-color: #bfbfbf;
+  margin-bottom: 4%;
+  margin-top: 3%;
+}
+
+.orangeBtn:hover {
+  background-color: #bfbfbf;
+}
+
+.songList {
+  color: white;
+}
 .dummySignup {
   float: right;
   margin-top: -5%;
@@ -88,18 +101,10 @@ li {
 
 .paddingDiv {
   height: 20%;
+  color: pink;
 }
 
 .buttonDiv {
   text-align: center;
-}
-
-.orangeBtn {
-  background-color: #ffcc66;
-  margin-bottom: 10%;
-  margin-top: 3%;
-}
-
-.orangeBtn:hover {
-  background-color: #ffcc66;
+  margin-left: -13%;
 }
