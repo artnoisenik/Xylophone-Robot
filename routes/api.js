@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+const valid = require('../validate/');
 const knex = require('../db');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
