@@ -7,14 +7,23 @@
 
   angular.module('app', dependencies)
     .config(setupRoutes)
-    .run(stateChange);
+    .run(stateChange)
+    .controller('MainController', function($scope){
+    
+        socket.on('test', function(data){
+            console.log('test', data);
+            $scope.messages = data;
+            $scope.$apply();
+        })
+
+        socket.emit('messageFeed', {message: 'message'});
+    });
 
   setupRoutes.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
 
   function setupRoutes($stateProvider, $urlRouterProvider, $locationProvider){
     $locationProvider.html5Mode(true);
     $urlRouterProvider.otherwise("/");
-
     $stateProvider
       .state('home', {
         url: "/",
