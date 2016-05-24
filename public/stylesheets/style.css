@@ -17,7 +17,7 @@ h1 {
 .chordsTitle {
   font-size: 32px;
   color: hotpink;
-  margin-top: 20px;
+  margin-top: 6%;
 }
 
 .chords {
@@ -59,4 +59,10 @@ div.notes:active {
 .sequenceForm {
   margin-top: 15px;
   margin-bottom: 15px;
+}
+
+.dummySignup {
+  float: right;
+  margin-top: -5%;
+  margin-right: -10%;
 }
