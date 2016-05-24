@@ -60,3 +60,7 @@ div.notes:active {
   margin-top: 15px;
   margin-bottom: 15px;
 }
+
+.songList {
+  color: white;
+}
