@@ -67,19 +67,39 @@ div.notes:active {
   margin-right: -10%;
 }
 
-footer {
+.footie {
   position: fixed;
   bottom: 0%;
   right: 0%;
   left: 0%;
+  /*text-align: center;*/
 }
 
 .authors {
-
+  text-align: center;
 }
 
-.authors li {
+li {
   list-style-type: none;
   display: inline;
   color: white;
+  margin-left: 2%;
+}
+
+.paddingDiv {
+  height: 20%;
+}
+
+.buttonDiv {
+  text-align: center;
+}
+
+.orangeBtn {
+  background-color: #ffcc66;
+  margin-bottom: 10%;
+  margin-top: 3%;
+}
+
+.orangeBtn:hover {
+  background-color: #ffcc66;
 }
