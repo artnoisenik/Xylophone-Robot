@@ -9,16 +9,15 @@ a {
 }
 
 h1 {
-  /*color: #e600e6;*/
+  color: #e600e6;
   font-size: 50px;
-  color: orange;
 
 }
 
 .chordsTitle {
   font-size: 32px;
   color: hotpink;
-  margin-top: 20px;
+  margin-top: 6%;
 }
 
 .chords {
@@ -30,9 +29,9 @@ h1 {
   border-radius: 10px;
 }
 
-.chords:click {
-
-}
+div.chords:active {
+    background-color: hotpink;
+    }
 
 .notesTitle {
   font-size: 32px;
@@ -49,7 +48,38 @@ h1 {
   border-radius: 10px;
 }
 
+.notes:first-child {
+  margin-left: 58px;
+}
+
+div.notes:active {
+    background-color: peachpuff;
+    }
+
 .sequenceForm {
   margin-top: 15px;
   margin-bottom: 15px;
+}
+
+.dummySignup {
+  float: right;
+  margin-top: -5%;
+  margin-right: -10%;
+}
+
+footer {
+  position: fixed;
+  bottom: 0%;
+  right: 0%;
+  left: 0%;
+}
+
+.authors {
+
+}
+
+.authors li {
+  list-style-type: none;
+  display: inline;
+  color: white;
 }
