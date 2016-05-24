@@ -66,3 +66,20 @@ div.notes:active {
   margin-top: -5%;
   margin-right: -10%;
 }
+
+footer {
+  position: fixed;
+  bottom: 0%;
+  right: 0%;
+  left: 0%;
+}
+
+.authors {
+
+}
+
+.authors li {
+  list-style-type: none;
+  display: inline;
+  color: white;
+}
