@@ -61,9 +61,9 @@ div.notes:active {
   margin-bottom: 15px;
 }
 
-<<<<<<< HEAD
 .songList {
-=======
+  color: white;
+}
 .dummySignup {
   float: right;
   margin-top: -5%;
@@ -78,12 +78,11 @@ footer {
 }
 
 .authors {
-
+  text-align: center;
 }
 
 .authors li {
   list-style-type: none;
   display: inline;
->>>>>>> d65932594c99efa3969b3f0da6aab95d8bcbda28
   color: white;
 }
