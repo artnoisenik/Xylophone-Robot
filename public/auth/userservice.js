@@ -2,7 +2,7 @@
   angular.module('app')
   .service('UserService', UserService);
 
-  function UserService($http, JWT, $window) {
+  function UserService($http, JWT, $window, $q) {
     var self = this;
 
     self.currentUser = null;
@@ -29,5 +29,5 @@
       }
   }
 
-  UserService.$inject= ['$http', 'JWT']
+  UserService.$inject= ['$http', 'JWT', '$q']
 })()

@@ -10,6 +10,7 @@
     .then(function() {
       $state.go('loggedin', null, { reload: true })
     })
+
     }
 
 
