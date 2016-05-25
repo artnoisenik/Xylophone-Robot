@@ -13,8 +13,6 @@
     .controller('MainController', MainController);
 
   setupRoutes.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
-  MainController.$inject = ['$scope', 'mySocket', '$timeout'];
-
   function setupRoutes($stateProvider, $urlRouterProvider, $locationProvider){
     $locationProvider.html5Mode(true);
     $urlRouterProvider.otherwise("/");
@@ -58,6 +56,7 @@
     return socketFactory();
   };
 
+  MainController.$inject = ['$scope', 'mySocket', '$timeout'];
   function MainController ($scope, mySocket, $timeout){
     socket.on('test', function(data){
       $scope.messages = data;
@@ -67,7 +66,7 @@
     socket.emit('messageFeed', {message: 'message'});
 
     $scope.playNoteC = function() {
-      mySocket.emit('noteC:on');
+      mySocket.emit('noteC:on', {hello: 'hello'});
       console.log('NOTE: C ON');
       $timeout(function() {
         mySocket.emit('noteC:off');
