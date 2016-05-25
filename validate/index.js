@@ -3,9 +3,6 @@ exports.register = function(req, res, next){
   if(!body){
     res.status(422).send({ error: 'Must Provide the Stuff' });
   }
-  else if(!body.username || !body.username.trim()){
-    res.status(422).send({ error: 'Provide Username' });
-  }
   else if(!body.email || !body.email.trim()){
     res.status(422).send({ error: 'Provide Email' });
   }
