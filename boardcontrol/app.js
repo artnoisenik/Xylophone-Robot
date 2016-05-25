@@ -1,33 +1,51 @@
 const five = require("johnny-five");
-const board = new five.Board();
-const express = require('express');
-const app = express();
-const httpServer = require("http").createServer(app);
-const five = require("johnny-five");
-const io = require('socket.io')(httpServer);
+const io = require('socket.io')(80);
 
-const port = 3000;
+const led;
 
-fiv.Board({
-  port: "/dev/cu.usbmodem1411"
-})
-
+//Arduino board connection
+let board = new five.Board();
 board.on("ready", function() {
-  const led = new five.Led(13);
-  led.blink(500);
+    console.log('Arduino connected');
+    noteC = new five.Led(2);
+    noteD = new five.Led(3);
 });
 
-io.on('connection', function (socket) {
-  console.log(socket.id);
+//Socket connection handler
+io.on('connection', function(socket) {
+    console.log(socket.id);
 
-  socket.on('led:on', function (data) {
-    led.on();
-    console.log('LED ON RECEIVED');
-  });
+    socket.on('noteC:on', function(data) {
+        noteC.on();
+        console.log('PLAYING NOTE: C');
+    });
 
-  socket.on('led:off', function (data) {
-    led.off();
-    console.log('LED OFF RECEIVED');
+    socket.on('noteC:off', function(data) {
+        noteC.off();
+        console.log('STOP PLAYING NOTE: C');
+    });
 
-  });
+    socket.on('noteD:on', function(data) {
+        noteD.on();
+        console.log('PLAYING NOTE: D');
+    });
+
+    socket.on('noteD:off', function(data) {
+        noteD.off();
+        console.log('STOP PLAYING NOTE: D');
+    });
+
+    socket.on('chord:on', function(data) {
+        noteC.on();
+        noteD.on();
+        console.log('PLAYING NOTE: D');
+    });
+
+    socket.on('chord:off', function(data) {
+        noteC.off();
+        noteD.off();
+        console.log('STOP PLAYING NOTE: D');
+    });
 });
+
+console.log('Waiting for connection');
