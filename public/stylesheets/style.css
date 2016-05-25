@@ -128,3 +128,16 @@ li {
   height: 20%;
   color: pink;
 }
+
+.error {
+  color: red;
+  font-size: 18px;
+}
+
+.has-error > input {
+  border: 3px solid red;
+}
+
+/*.has-success {
+  border: 1px solid green;
+}*/
