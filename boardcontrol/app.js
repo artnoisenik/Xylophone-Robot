@@ -1,19 +1,19 @@
-var five = require("johnny-five");
-var board = new five.Board();
-var express = require('express');
-var app = express();
-var httpServer = require("http").createServer(app);
-var five = require("johnny-five");
-var io = require('socket.io')(httpServer);
+const five = require("johnny-five");
+const board = new five.Board();
+const express = require('express');
+const app = express();
+const httpServer = require("http").createServer(app);
+const five = require("johnny-five");
+const io = require('socket.io')(httpServer);
 
-var port = 3000;
+const port = 3000;
 
 fiv.Board({
   port: "/dev/cu.usbmodem1411"
 })
 
 board.on("ready", function() {
-  var led = new five.Led(13);
+  const led = new five.Led(13);
   led.blink(500);
 });
 
