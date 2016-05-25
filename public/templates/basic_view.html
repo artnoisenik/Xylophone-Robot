@@ -1,44 +1,63 @@
-<h3>Basic View</h3>
 
-<!-- <div class="dummySignup">
-  <form action="" >
-    <label for="email"></label>
-    <input type="text">
-    <label for="password"></label>
-    <input type="password">
-    <button type="button" class="btn btn-success-outline">Submit</button>
-  </form>
 
-  <a href="/loggedin">TEST LINK TO LOGGED IN</a>
+<div class="dummySignup">
   <a href="/login">Log in</a>
   <a href="/signup">Sign up</a>
-</div> -->
+</div>
 
 
-<section class="chordsTitle">Chords:
-  <div class="chords" ng-click="playChordA()">A</div>
-  <div class="chords" ng-click="playChordB()">B</div>
-  <div class="chords" ng-click="playChordC()">C</div>
-  <div class="chords" ng-click="playChordD()">D</div>
-  <div class="chords" ng-click="playChordE()">E</div>
-  <div class="chords" ng-click="playChordF()">F</div>
-  <div class="chords" ng-click="playChordG()">G</div>
-</section>
+<!-- <section class="chordsContainer"> -->
+<div class="row">
+  <div class="col-md-2">
+    <div class="chordsTitle rwd-break">Chords:</div>
+  </div>
+  <div class="col-md-10">
+    <div class="chords" ng-click="playChordsA()">A</div>
+    <div class="chords" ng-click="playChordsB()">B</div>
+    <div class="chords" ng-click="playChordsC()">C</div>
+    <div class="chords" ng-click="playChordsD()">D</div>
+    <div class="chords" ng-click="playChordsE()">E</div>
+    <div class="chords" ng-click="playChordsF()">F</div>
+    <div class="chords" ng-click="playChordsG()">G</div>
+    <div class="chords" ng-click="playChordsC()">C</div>
+  </div>
+</div>
+<!-- </section> -->
 
+<div class="row">
+  <div class="col-md-12">
+    <textarea class="sequenceForm"  name="sequence" rows="4" cols="120" placeholder="Put your sequence here"></textarea>
+  </div>
 
-<textarea class="sequenceForm"  name="sequence" rows="4" cols="120" placeholder="Put your sequence here"></textarea>
+</div>
+
 
 <div class="buttonDiv">
   <button type="button" class="btn btn-primary btn-lg orangeBtn">Play</button>
   <button type="button" class="btn btn-primary btn-lg orangeBtn">Save</button>
 </div>
 
-<section class="notesTitle">Notes:
-  <div class="notes" ng-click="playNoteA()">A</div>
-  <div class="notes" ng-click="playNoteB()">B</div>
-  <div class="notes" ng-click="playNoteC()">C</div>
-  <div class="notes" ng-click="playNoteD()">D</div>
-  <div class="notes" ng-click="playNoteE()">E</div>
-  <div class="notes" ng-click="playNoteF()">F</div>
-  <div class="notes" ng-click="playNoteG()">G</div>
-</section>
+<div class="row">
+  <div class="col-md-2">
+    <div class="notesTitle rwd-break">Notes:</div>
+  </div>
+  <div class="col-md-10">
+    <div class="notes" ng-click="playNoteA()">A</div>
+    <div class="notes" ng-click="playNoteB()">B</div>
+    <div class="notes" ng-click="playNoteC()">C</div>
+    <div class="notes" ng-click="playNoteD()">D</div>
+    <div class="notes" ng-click="playNoteE()">E</div>
+    <div class="notes" ng-click="playNoteF()">F</div>
+    <div class="notes" ng-click="playNoteG()">G</div>
+  </div>
+</div>
+
+<!-- <section class="notesTitle">Notes:
+  <div class="notes">A</div>
+  <div class="notes">B</div>
+  <div class="notes">C</div>
+  <div class="notes">D</div>
+  <div class="notes">E</div>
+  <div class="notes">F</div>
+  <div class="notes">G</div>
+</section> -->

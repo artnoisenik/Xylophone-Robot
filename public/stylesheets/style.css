@@ -1,8 +1,12 @@
 body {
-  padding: 50px;
+  padding: 4%;
   font-family: 'Quicksand', sans-serif;
   background-image: url("background2.jpg");
   height: 100%;
+}
+
+.page-header {
+  margin-bottom: 80px;
 }
 
 a {
@@ -15,11 +19,16 @@ h1 {
 
 }
 
+.chordsContainer {
+  margin-top: 10%;
+}
+
 .chordsTitle {
   font-size: 32px;
   color: hotpink;
-  margin-top: 6%;
+  display: inline-block;
 }
+
 
 .chords {
   color: #ffffff;
@@ -29,16 +38,25 @@ h1 {
   padding: 2%;
   border-radius: 10px;
   cursor: pointer;
+  width: 7%;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 26px;
 }
 
 div.chords:active {
     background-color: hotpink;
     }
 
+.notesContainer {
+  margin-top: 5%;
+  margin-bottom: 15%;
+}
+
 .notesTitle {
   font-size: 32px;
   color: peachpuff;
-  margin-bottom: 20px;
+  display: inline-block;
 }
 
 .notes {
@@ -49,27 +67,31 @@ div.chords:active {
   padding: 2%;
   border-radius: 10px;
   cursor: pointer;
+  width: 7%;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 26px;
 }
 
-.notes:first-child {
+/*.notes:first-child {
   margin-left: 58px;
-}
+}*/
 
 div.notes:active {
     background-color: peachpuff;
     }
 
 .sequenceForm {
-  margin-top: 4%;
+  margin-top: 6%;
   width: 66%;
   height: 60px;
   text-align: center;
-  margin-left: 15%;
+  margin-left: 20%;
 }
 
 .buttonDiv {
   text-align: center;
-  margin-left: -6%;
+  margin-left: 6%;
 }
 
 .orangeBtn {
@@ -102,7 +124,6 @@ div.notes:active {
 .dummySignup {
   float: right;
   margin-top: -5%;
-  margin-right: -10%;
 }
 
 .footie {
@@ -125,7 +146,22 @@ li {
   margin-left: 2%;
 }
 
-.paddingDiv {
-  height: 20%;
-  color: pink;
+.rwd-break {
+  display: inline-block;
+}
+
+@media only screen and (max-width: 500px) {
+    .notes {
+        width: 12%;
+        font-size: .6em;
+        height: 30px;
+    }
+    .chords {
+        width: 12%;
+        font-size: .6em;
+        height: 30px;
+    }
+    .rwd-break {
+      display: block;
+    }
 }

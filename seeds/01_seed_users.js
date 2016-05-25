@@ -2,11 +2,11 @@
 exports.seed = function(knex, Promise) {
   return Promise.join(
     // Deletes ALL existing entries
-    knex('table_name').del(),
+    knex('users').del(),
 
     // Inserts seed entries
-    knex('table_name').insert({id: 1, colName: 'rowValue'}),
-    knex('table_name').insert({id: 2, colName: 'rowValue2'}),
-    knex('table_name').insert({id: 3, colName: 'rowValue3'})
+    knex('users').insert({ email: 'user1@example.com', password_hash: '$2a$10$b6vFmPjUz3eXYBVXaclrgeaQbBJPJ1KYq96kNXCXRRfiPXmiQVKhW'}),
+    knex('users').insert({ email: 'user2@example.com', password_hash: '$2a$10$b6vFmPjUz3eXYBVXaclrgeaQbBJPJ1KYq96kNXCXRRfiPXmiQVKhW'}),
+    knex('users').insert({ email: 'user3@example.com', password_hash: '$2a$10$b6vFmPjUz3eXYBVXaclrgeaQbBJPJ1KYq96kNXCXRRfiPXmiQVKhW'})
   );
 };
