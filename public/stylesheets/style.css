@@ -71,6 +71,16 @@ div.notes:active {
   background-color: #bfbfbf;
 }
 
+.orangeBtn:focus {
+  background-color: #bfbfbf;
+}
+
+.btn-primary.active, .btn-primary:active, .btn-primary:hover, .btn-primary:visited,
+.btn-primary:active:focus, .btn-primary:active:hover {
+  background-color: #bfbfbf;
+  border-color: #bfbfbf;
+}
+
 .dummySignup {
   float: right;
   margin-top: -5%;
@@ -78,8 +88,9 @@ div.notes:active {
 }
 
 .footie {
-  position: fixed;
-  bottom: 0%;
+  /*position: fixed;*/
+  margin-bottom: -10%;
+  margin-top: 5%;
   right: 0%;
   left: 0%;
   /*text-align: center;*/
