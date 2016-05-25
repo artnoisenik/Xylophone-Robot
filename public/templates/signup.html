@@ -1,4 +1,4 @@
-<form ng-submit='auth.handleAuth()' name="SignupForm">
+<form name="SignupForm" novalidate ng-submit='SignupForm.$valid && auth.handleAuth()' >
 
   <div class="error-container" ng-show="SignupForm.email.$dirty && SignupForm.email.$invalid">
     <small class="error" ng-show="SignupForm.email.$error.minlength">Your email is required to be at least 3 characters and valid email format</small>
