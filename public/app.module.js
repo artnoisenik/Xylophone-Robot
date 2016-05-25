@@ -66,12 +66,8 @@
     socket.emit('messageFeed', {message: 'message'});
 
     $scope.playNoteC = function() {
-      mySocket.emit('noteC:on', {hello: 'hello'});
+      mySocket.emit('noteC:on', 'noteC');
       console.log('NOTE: C ON');
-      $timeout(function() {
-        mySocket.emit('noteC:off');
-        console.log('NOTE: C OFF');
-      }, 50);
     };
 
     $scope.playNoteD = function() {
