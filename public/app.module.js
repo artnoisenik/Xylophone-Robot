@@ -25,13 +25,13 @@
         url: "/loggedin",
         templateUrl: "/templates/user_view.html"
       })
-      .state('signin', {
+      .state('login', {
         url: "/login",
         templateUrl: "/templates/login.html",
         controllerAs: 'auth',
         controller: 'AuthCtrl'
       })
-      .state('login', {
+      .state('signup', {
         url: "/signup",
         templateUrl: "/templates/signup.html",
         controllerAs: 'auth',

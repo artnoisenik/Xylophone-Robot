@@ -52,10 +52,8 @@ router.post('/users/login', valid.login, function(req, res, next) {
       .whereRaw('lower(email) = ?', user.email.toLowerCase())
       .first()
       .then(function (result) {
-        console.log(result.password_hash)
-        console.log(password);
         if (!result) {
-          res.status(422).json({
+          res.status(422).send({
             error: "Invalid password or email"
           })
         }

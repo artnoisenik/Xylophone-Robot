@@ -7,8 +7,14 @@
     vm.handleAuth = function(){
       console.log(authType);
     return  UserService.attemptAuth(authType, vm.user)
-    .then(function() {
-      $state.go('loggedin', null, { reload: true })
+    .then(function(response) {
+      if(response.error){
+        vm.error = response.error;
+        console.log('!!!!', vm.error);
+        // $state.go('login');
+        }else {
+          $state.go('loggedin', null, { reload: true })
+        }
     })
     }
 
