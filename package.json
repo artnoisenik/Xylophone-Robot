@@ -16,7 +16,6 @@
     "jsonwebtoken": "^7.0.0",
     "knex": "^0.11.4",
     "morgan": "~1.6.1",
-    "node-static": "^0.7.7",
     "pg": "^4.5.5",
     "serve-favicon": "~2.3.0",
     "socket.io": "^1.4.6"

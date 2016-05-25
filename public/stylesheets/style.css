@@ -71,6 +71,7 @@ div.notes:active {
   background-color: #bfbfbf;
 }
 
+<<<<<<< HEAD
 .orangeBtn:focus {
   background-color: #bfbfbf;
 }
@@ -81,6 +82,11 @@ div.notes:active {
   border-color: #bfbfbf;
 }
 
+=======
+.songList {
+  color: white;
+}
+>>>>>>> 6a4ac8141f814abe7422bb667519e7a38b57ce57
 .dummySignup {
   float: right;
   margin-top: -5%;
