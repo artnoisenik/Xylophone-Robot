@@ -1,10 +1,12 @@
+'use strict';
+
 const five = require("johnny-five");
 const io = require('socket.io')(80);
 
-const led;
+let led;
 
 //Arduino board connection
-let board = new five.Board();
+const board = new five.Board();
 board.on("ready", function() {
     console.log('Arduino connected');
     noteC = new five.Led(2);
