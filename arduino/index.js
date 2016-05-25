@@ -1,7 +1,6 @@
-'use strict';
 
-const socket = require('socket.io-client')('http://localhost:3000');
-const five = require("johnny-five");
+var five = require("johnny-five");
+var socket = require('socket.io-client')('http://localhost:3000');
 
 var board = new five.Board();
 board.on("ready", function() {
@@ -16,16 +15,16 @@ board.on("ready", function() {
   noteC2 = new five.Led(9);
 });
 
+socket.on('test', function (data) {
+  console.log(data);
+})
 
 socket.on('noteC:on', function(data) {
-  console.log(data);
-  noteC.on();
-  console.log('PLAYING NOTE: C');
+  noteC.on()
 });
 
 socket.on('noteC:off', function(data) {
   noteC.off();
-  console.log('STOP PLAYING NOTE: C');
 });
 
 socket.on('noteD:on', function(data) {
@@ -97,7 +96,5 @@ socket.on('noteC2:off', function(data) {
   noteC2.off();
   console.log('STOP PLAYING NOTE: C2');
 });
-
-
 
 socket.on('disconnect', function(){});
