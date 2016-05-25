@@ -73,10 +73,6 @@ div.chords:active {
   font-size: 26px;
 }
 
-/*.notes:first-child {
-  margin-left: 58px;
-}*/
-
 div.notes:active {
     background-color: peachpuff;
     }
@@ -96,6 +92,7 @@ div.notes:active {
 
 .orangeBtn {
   background-color: #bfbfbf;
+  color: black;
   margin-bottom: 4%;
   margin-top: 3%;
 }
@@ -164,4 +161,8 @@ li {
     .rwd-break {
       display: block;
     }
+}
+
+.loggedIn {
+  margin-top: 5%;
 }
