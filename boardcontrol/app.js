@@ -1,3 +1,5 @@
+'use strict';
+
 const five = require("johnny-five");
 const io = require('socket.io')(80);
 
