@@ -53,7 +53,6 @@
 
   function MainController ($scope){
     socket.on('test', function(data){
-      console.log('test', data);
       $scope.messages = data;
       $scope.$apply();
     })

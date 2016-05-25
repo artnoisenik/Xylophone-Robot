@@ -3,6 +3,8 @@
 const five = require("johnny-five");
 const io = require('socket.io')(80);
 
+console.log('info');
+
 let led;
 
 //Arduino board connection

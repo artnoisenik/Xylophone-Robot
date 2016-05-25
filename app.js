@@ -21,9 +21,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/api/v1/', api);
 
 // wildcard route sends index.html on every request to make sure angular is given to the //client
-app.all('*', function(req, res, next) {
-  res.sendFile('index.html', { root: __dirname + '/public/' });
-});
+// app.all('*', function(req, res, next) {
+//   res.sendFile('index.html', { root: __dirname + '/public/' });
+// });
 
 
 // catch 404 and forward to error handler
