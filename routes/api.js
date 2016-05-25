@@ -4,6 +4,8 @@ const valid = require('../validate/');
 const knex = require('../db');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const io = require('../lib/io');
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -72,5 +74,12 @@ router.post('/users/login', valid.login, function(req, res, next) {
         }
       })
 });
+
+router.get('/arduino', function (req, res, next) {
+  io.sockets.emit('event', 'blake and san')
+  res.end();
+})
+
+
 
 module.exports = router;
