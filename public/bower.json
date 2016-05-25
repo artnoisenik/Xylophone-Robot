@@ -1,0 +1,21 @@
+{
+  "name": "bm_machine",
+  "description": "",
+  "main": ".",
+  "authors": [
+    "Blake Netzeband <blake.netzeband@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/artnoisenik/bm-machine",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "socket.io-client": "^1.4.6",
+    "angular-socket-io": "^0.7.0"
+  }
+}
