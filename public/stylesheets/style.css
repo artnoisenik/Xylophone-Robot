@@ -28,6 +28,7 @@ h1 {
   margin-left: 3%;
   padding: 2%;
   border-radius: 10px;
+  cursor: pointer;
 }
 
 div.chords:active {
@@ -47,6 +48,7 @@ div.chords:active {
   margin-left: 3%;
   padding: 2%;
   border-radius: 10px;
+  cursor: pointer;
 }
 
 .notes:first-child {
@@ -59,6 +61,15 @@ div.notes:active {
 
 .sequenceForm {
   margin-top: 4%;
+  width: 66%;
+  height: 60px;
+  text-align: center;
+  margin-left: 15%;
+}
+
+.buttonDiv {
+  text-align: center;
+  margin-left: -6%;
 }
 
 .orangeBtn {
@@ -71,7 +82,6 @@ div.notes:active {
   background-color: #bfbfbf;
 }
 
-<<<<<<< HEAD
 .orangeBtn:focus {
   background-color: #bfbfbf;
 }
@@ -80,13 +90,15 @@ div.notes:active {
 .btn-primary:active:focus, .btn-primary:active:hover {
   background-color: #bfbfbf;
   border-color: #bfbfbf;
+  margin-bottom: 4%;
+  margin-top: 3%;
 }
 
-=======
+
 .songList {
   color: white;
 }
->>>>>>> 6a4ac8141f814abe7422bb667519e7a38b57ce57
+
 .dummySignup {
   float: right;
   margin-top: -5%;
@@ -116,9 +128,4 @@ li {
 .paddingDiv {
   height: 20%;
   color: pink;
-}
-
-.buttonDiv {
-  text-align: center;
-  margin-left: -13%;
 }
