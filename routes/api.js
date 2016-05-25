@@ -11,8 +11,8 @@ router.get('/', function(req, res, next) {
   res.json('hello');
 });
 //api/v1/test get request
-router.post('/users/signup', function(req, res, next) {
-  console.log("test");
+router.post('/users/signup', valid.register, function(req, res, next) {
+
   const user = req.body.user;
   const username = user.username;
   const email = user.email;
@@ -44,8 +44,7 @@ router.post('/users/signup', function(req, res, next) {
     })
 });
 
-router.post('/users/login', function(req, res, next) {
-  console.log("test");
+router.post('/users/login', valid.login, function(req, res, next) {
   const user = req.body.user;
     const email = user.email;
     const password = user.password;
