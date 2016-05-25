@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  var dependencies = [
+  const dependencies = [
     'ui.router',
   ];
 
@@ -9,7 +9,6 @@
     .config(setupRoutes)
     .run(stateChange)
     .controller('MainController', MainController);
-
 
   setupRoutes.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
   MainController.$inject = ['$scope'];

@@ -1,5 +1,5 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 const valid = require('../validate/');
 const knex = require('../db');
 const bcrypt = require('bcrypt');
@@ -14,7 +14,6 @@ router.get('/', function(req, res, next) {
 router.post('/users/signup', valid.register, function(req, res, next) {
 
   const user = req.body.user;
-  const username = user.username;
   const email = user.email;
   const password_hash = bcrypt.hashSync(user.password, 10);
 
