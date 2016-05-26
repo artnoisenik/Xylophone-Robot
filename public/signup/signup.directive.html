@@ -1,0 +1,55 @@
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-md-12">
+            <bm-nav></bm-nav>
+        </div>
+    </div>
+
+</div>
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-12">
+
+            <form ng-submit="signup.handleAuth()" name="SignupForm">
+
+                <div class="error-container" ng-show="SignupForm.email.$dirty && SignupForm.email.$invalid">
+                    <small class="error" ng-show="SignupForm.email.$error.minlength">Your email is required to be at least 3 characters and valid email format</small>
+                    <small class="error" ng-show="SignupForm.email.$error.maxlength">Your email cannot be longer than 16 characters and valid email format</small>
+                </div>
+
+                <div class="error-container" ng-show="SignupForm.email.$dirty && SignupForm.email.$invalid">
+                    <small class="error" ng-show="SignupForm.password.$error.minlength">Your password is required to be at least 3 characters</small>
+                    <small class="error" ng-show="SignupForm.password.$error.maxlength">Your password cannot be longer than 16 characters</small>
+                </div>
+
+                <div class="form-group" ng-class="{'has-error': SignupForm.email.$invalid && SignupForm.email.$touched, 'has-success': SignupForm.email.$valid && SignupForm.email.$touched}">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input name="email" type="email" class="form-control" id="exampleInputEmail1" placeholder="Email" ng-model="signup.user.email" ng-minlength=3 ng-maxlength=16 required>
+                </div>
+
+                <div class="form-group" ng-class="{'has-error': SignupForm.password.$invalid && SignupForm.password.$touched}">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" ng-model="signup.user.password" ng-minlength=3 ng-maxlength=16 required>
+                </div>
+
+                <button type="submit" class="btn btn-default">Sign Up</button>
+
+            </form>
+
+        </div>
+    </div>
+
+</div>
+
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-md-12">
+            <bm-footer></bm-footer>
+        </div>
+    </div>
+
+</div>

@@ -17,22 +17,18 @@
         url: '/',
         template: '<bm-app></bm-app>'
       })
-      // .state('loggedin', {
-      //   url: '/loggedin',
-      //   templateUrl: '/templates/user_view.html'
-      // });
-      // .state('signin', {
-      //   url: '/login',
-      //   templateUrl: '/templates/login.html',
-      //   controllerAs: 'auth',
-      //   controller: 'AuthCtrl'
-      // })
-      // .state('login', {
-      //   url: '/signup',
-      //   templateUrl: '/templates/signup.html',
-      //   controllerAs: 'auth',
-      //   controller: 'AuthCtrl'
-      // });
+      .state('loggedin', {
+        url: '/loggedin',
+        template: '<bm-loggedin></bm-loggedin>'
+      })
+      .state('signin', {
+        url: '/login',
+        template: '<bm-login></bm-login>'
+      })
+      .state('login', {
+        url: '/signup',
+        template: '<bm-signup></bm-signup>'
+      });
 
     $locationProvider.html5Mode(true);
   }

@@ -1,131 +1,57 @@
 (function() {
     'use strict';
 
-    angular.module('RedditClone')
-        .factory('redditServices', factory);
+    angular.module('app')
+        .factory('BMFactory', BMFactory);
 
 
-    factory.$inject = ['$http', '$window', '$location'];
+    BMFactory.$inject = ['$http', '$window'];
 
-    function factory($http, $window, $location) {
+    function BMFactory($http, $window) {
+        var currentUser = null;
 
         var service = {
-            allPostings: getAllPostings,
-            allComments: getAllComments,
-            voteUp: postVoteUp,
-            voteDown: postVoteDown,
-            addNewComment: postAddNewComment,
-            newPosting,
-            signup,
-            login
+            attemptAuth,
+            logOut,
+            save,
+            fetch,
+            destroy
         };
 
         return service;
 
-        function getAllPostings() {
-            return $http.get('http://localhost:3000/api/postings')
-                .then(function(res) {
-                    return res;
+        function attemptAuth(authType, user) {
+            return $http.post('/api/v1/users' + authType, {user: user})
+                .then(function(response) {
+                    console.log('factory', response);
+                    save(response.data.token);
+                    currentUser = response.data.id;
+
+                    return response;
                 })
-                .catch(function(err) {
-                    return err;
+                .catch(function(error) {
+                    console.log(error.data.error);
                 });
         }
 
-        function newPosting(posting) {
-            let data = {
-                    'author_id': 1,
-                    'title': posting.title,
-                    'image_url': posting.image_url,
-                    'posting': posting.posting
-                };
-
-            return $http.post('http://localhost:3000/api/newPosting', data)
-                .then(function(res) {
-                    return res;
-                })
-                .catch(function(err) {
-                    return err;
-                });
+        function logOut() {
+            currentUser = null;
+            destroy();
+            $window.location.reload;
         }
 
-        function getAllComments() {
-            return $http.get('http://localhost:3000/api/comments')
-                .then(function(res) {
-                    return res;
-                })
-                .catch(function(err) {
-                    return err;
-                });
+        function save(token) {
+            $window.localStorage['jwtToken'] = token;
         }
 
-        function postAddNewComment(comment) {
-            return $http.post('http://localhost:3000/api/newComment', {
-                    'author_id': comment.newComment.author_id,
-                    'comment': comment.newComment.comment,
-                    'posting_id': comment.post_id
-                })
-                .then(function(res) {
-                    return res;
-                })
-                .catch(function(err) {
-                    return err;
-                });
+        function fetch() {
+            return $window.localStorage['jwtToken'];
         }
 
-        function postVoteUp(post) {
-            post.votes++;
-            return $http.post('http://localhost:3000/api/postings/votes', {
-                    'id': post.id,
-                    'votes': post.votes
-                })
-                .then(function(res) {
-                    return res;
-                })
-                .catch(function(err) {
-                    return err;``
-                });
-        }
-
-        function postVoteDown(post) {
-            post.votes--;
-            return $http.post('http://localhost:3000/api/postings/votes', {
-                    'id': post.id,
-                    'votes': post.votes
-                })
-                .then(function(res) {
-                    return res;
-                })
-                .catch(function(err) {
-                    return err;
-                });
-        }
-
-        function signup(data) {
-            return $http.post('http://localhost:3000/api/signup', data)
-                .then(function(res) {
-                    $window.localStorage.setItem('token', res.data.token);
-                    $location.path('/');
-                    return res;
-                })
-                .catch(function(err) {
-                    return err;
-                });
-        }
-
-        function login(data) {
-            console.log(data);
-            return $http.post('http://localhost:3000/api/login', data)
-                .then(function(res) {
-                    $window.localStorage.setItem('token', res.data.token);
-                    $location.path('/');
-                    return res;
-                })
-                .catch(function(err) {
-                    return err;
-                });
+        function destroy() {
+            $window.localStorage.removeItem('jwtToken');
         }
 
     }
 
-}());
+})();
