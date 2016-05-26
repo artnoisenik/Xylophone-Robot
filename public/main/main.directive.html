@@ -40,13 +40,30 @@
   <div class="col-md-12">
     <form ng-submit="main.playSequence(main.sequence)">
 
-      <textarea ng-model="main.sequence" class="sequenceForm" name="sequence" rows="4" cols="120" placeholder="Put your sequence here"></textarea>
+      <h4 class="whiteFont">Sequence Generator</h4>
+      <textarea ng-model="main.sequence" class="sequenceForm" name="sequence" rows="4" cols="120" placeholder="Type a sequence here"></textarea>
 
-
+      
       <div class="buttonDiv">
         <input type="submit" class="btn btn-primary btn-lg orangeBtn" value="Play">
         <button type="button" class="btn btn-primary btn-lg orangeBtn" ng-click="saveSequence(main.sequence)">Save</button>
       </div>
     </form>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <h4 class="whiteFont">Instructions: </h4>
+    <p class="whiteFont">Our proprietary Sequence Generator allows you to hastly compose a song by typing in a series notes and chords</li>
+      <ul class="whiteFont">
+        <li>To add a note, simply type in its corresponding letter <i>(i.e. a, b, c, d, e, f, or g)</i></li>
+        <li>To add a chord, add a ' character after the note's name <i>(ex: e', b', g')</i></li>
+        <li>Seperate each note / chord with a space</li>
+        <li>The period character represents a rest</li>
+        <li>Each note / chord / rest will be treated as a quarter note</li>
+        <li>Example Song: Mary Had a Little Lamb</li>
+          <li id="example"><i>C C G G A A G' . F F E E D D C' . G G F F E E D' . G G F F E E D' . C C G G A A G' . F F E E D D C2'</i></li>
+      </ul>
   </div>
 </div>

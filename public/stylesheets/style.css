@@ -131,7 +131,7 @@ div.notes:active {
 }
 
 
-.songList {
+.whiteFont {
   color: white;
 }
 
@@ -153,7 +153,7 @@ div.notes:active {
   text-align: center;
 }
 
-li {
+.authors li {
   list-style-type: none;
   display: inline;
   color: white;
@@ -196,6 +196,12 @@ li {
 .pointer{
   cursor: pointer;
 }
+
+#example{
+  list-style: none;
+}
+
+
 
 /*.has-success {
   border: 1px solid green;
