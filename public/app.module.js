@@ -1,42 +1,36 @@
 (function() {
   'use strict';
 
-  const dependencies = [
-    'ui.router',
-  ];
+  const dependencies = ['ui.router', 'btford.socket-io'];
 
   angular.module('app', dependencies)
     .config(setupRoutes)
-    .run(stateChange)
-    .controller('MainController', MainController);
+    .run(stateChange);
 
   setupRoutes.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
-  MainController.$inject = ['$scope'];
 
   function setupRoutes($stateProvider, $urlRouterProvider, $locationProvider){
-    $locationProvider.html5Mode(true);
-    $urlRouterProvider.otherwise("/");
+    $urlRouterProvider.otherwise('/');
+
     $stateProvider
       .state('home', {
-        url: "/",
-        templateUrl: "/templates/basic_view.html"
+        url: '/',
+        template: '<bm-app></bm-app>'
       })
       .state('loggedin', {
-        url: "/loggedin",
-        templateUrl: "/templates/user_view.html"
+        url: '/loggedin',
+        template: '<bm-loggedin></bm-loggedin>'
       })
       .state('signin', {
-        url: "/login",
-        templateUrl: "/templates/login.html",
-        controllerAs: 'auth',
-        controller: 'AuthCtrl'
+        url: '/login',
+        template: '<bm-login></bm-login>'
       })
       .state('login', {
-        url: "/signup",
-        templateUrl: "/templates/signup.html",
-        controllerAs: 'auth',
-        controller: 'AuthCtrl'
-      })
+        url: '/signup',
+        template: '<bm-signup></bm-signup>'
+      });
+
+    $locationProvider.html5Mode(true);
   }
 
   function stateChange($rootScope, $state, $window) {
@@ -51,14 +45,4 @@
     });
   }
 
-  function MainController ($scope){
-    socket.on('test', function(data){
-      console.log('test', data);
-      $scope.messages = data;
-      $scope.$apply();
-    })
-
-    socket.emit('messageFeed', {message: 'message'});
-  };
-
-}());
+})();

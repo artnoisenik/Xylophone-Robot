@@ -1,9 +1,11 @@
-const express = require('express');
-const router = express.Router();
+var express = require('express');
+var router = express.Router();
 const valid = require('../validate/');
 const knex = require('../db');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const io = require('../lib/io');
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -14,6 +16,7 @@ router.get('/', function(req, res, next) {
 router.post('/users/signup', valid.register, function(req, res, next) {
 
   const user = req.body.user;
+  const username = user.username;
   const email = user.email;
   const password_hash = bcrypt.hashSync(user.password, 10);
 
@@ -51,10 +54,8 @@ router.post('/users/login', valid.login, function(req, res, next) {
       .whereRaw('lower(email) = ?', user.email.toLowerCase())
       .first()
       .then(function (result) {
-        console.log(result.password_hash)
-        console.log(password);
         if (!result) {
-          res.status(422).json({
+          res.status(422).send({
             error: "Invalid password or email"
           })
         }
@@ -72,5 +73,10 @@ router.post('/users/login', valid.login, function(req, res, next) {
         }
       })
 });
+
+router.get('/arduino', function (req, res, next) {
+  io.sockets.emit('event', 'blake and san')
+  res.end();
+})
 
 module.exports = router;
