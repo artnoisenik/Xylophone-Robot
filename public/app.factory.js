@@ -5,9 +5,9 @@
         .factory('BMFactory', BMFactory);
 
 
-    BMFactory.$inject = ['$http', '$window'];
+    BMFactory.$inject = ['$http', '$window', 'socketFactory'];
 
-    function BMFactory($http, $window) {
+    function BMFactory($http, $window, socketFactory) {
         var currentUser = null;
 
         var service = {
@@ -15,7 +15,8 @@
             logOut,
             save,
             fetch,
-            destroy
+            destroy,
+            mySocket: socketFactory(),
         };
 
         return service;

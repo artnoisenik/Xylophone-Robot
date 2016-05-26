@@ -14,9 +14,9 @@
         };
     }
 
-    controller.$inject = ['$scope'];
+    controller.$inject = [];
 
-    function controller($scope) {
+    function controller() {
         var vm = this;
 
     }

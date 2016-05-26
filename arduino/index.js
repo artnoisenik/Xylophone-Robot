@@ -15,16 +15,14 @@ board.on("ready", function() {
   noteC2 = new five.Led(9);
 });
 
-socket.on('test', function (data) {
-  console.log(data);
-})
-
 socket.on('noteC:on', function(data) {
-  noteC.on()
+  noteC.on();
+  console.log('PLAYING NOTE: C');
 });
 
 socket.on('noteC:off', function(data) {
   noteC.off();
+  console.log('STOP PLAYING NOTE: C');
 });
 
 socket.on('noteD:on', function(data) {
