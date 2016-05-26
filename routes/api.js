@@ -74,9 +74,8 @@ router.post('/users/login', valid.login, function(req, res, next) {
       })
 });
 
-router.get('/arduino', function (req, res, next) {
-  io.sockets.emit('event', 'blake and san')
-  res.end();
+router.get('/users/logout', function (req, res, next) {
+  localStorage.clear();
 })
 
 module.exports = router;

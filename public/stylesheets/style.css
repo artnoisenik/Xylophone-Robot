@@ -193,6 +193,10 @@ li {
   border: 3px solid red;
 }
 
+.pointer{
+  cursor: pointer;
+}
+
 /*.has-success {
   border: 1px solid green;
 }*/
