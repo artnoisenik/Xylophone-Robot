@@ -28,7 +28,7 @@
 
                     login.error = response.error;
                   }else {
-                    $state.go('loggedin', null, { reload: true })
+                    $state.go('home', null, { reload: true })
                   }
                 });
         };

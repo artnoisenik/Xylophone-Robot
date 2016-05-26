@@ -24,7 +24,7 @@
             console.log(authType);
             return BMFactory.attemptAuth(authType, signup.user)
                 .then(function() {
-                    $state.go('loggedin', null, {
+                    $state.go('home', null, {
                         reload: true
                     });
                 });

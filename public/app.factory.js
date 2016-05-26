@@ -43,6 +43,8 @@
         }
 
         function save(token) {
+          console.log('hiiii', token);
+          localStorage.setItem('jwtToken', token)
             $window.localStorage['jwtToken'] = token;
         }
 

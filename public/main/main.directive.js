@@ -21,6 +21,8 @@
 
         var mySocket = BMFactory.mySocket;
 
+        main.logout = BMFactory.logOut;
+
         // SEQUENCE
         main.playSequence = function (sequence) {
           mySocket.emit('sequence', sequence.toUpperCase());
