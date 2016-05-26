@@ -22,8 +22,9 @@
         var mySocket = BMFactory.mySocket;
 
         // SEQUENCE
-        main.playSequence = function (data) {
-          console.log(data);
+        main.playSequence = function (sequence) {
+          mySocket.emit('sequence', sequence);
+          console.log('in directive', sequence);
         }
 
         // CHORDS

@@ -37,38 +37,15 @@
 
 <div class="row">
   <div class="col-md-12">
-    <textarea
-      class="sequenceForm"
-      name="sequence"
-      rows="4"
-      cols="120"
-      placeholder="Put your sequence here">
-    </textarea>
+    <form ng-submit="main.playSequence(main.sequence)">
+
+      <textarea ng-model="main.sequence" class="sequenceForm" name="sequence" rows="4" cols="120" placeholder="Put your sequence here"></textarea>
+
+
+      <div class="buttonDiv">
+        <input type="submit" class="btn btn-primary btn-lg orangeBtn" value="Play">
+        <button type="button" class="btn btn-primary btn-lg orangeBtn" ng-click="saveSequence()">Save</button>
+      </div>
+    </form>
   </div>
-</div>
-
-<div class="row">
-  <div class="col-md-12">
-    
-    <ul>
-      <li>Chords: </li>
-      <li></li>
-    </ul>
-  </div>
-</div>
-
-
-<div class="buttonDiv">
-  <button
-    type="button"
-    class="btn btn-primary btn-lg orangeBtn"
-    ng-click="playSequence()">
-    Play
-  </button>
-  <button
-    type="button"
-    class="btn btn-primary btn-lg orangeBtn"
-    ng-click="saveSequence()">
-    Save
-  </button>
 </div>
