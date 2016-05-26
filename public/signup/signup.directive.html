@@ -13,7 +13,7 @@
     <div class="row">
         <div class="col-md-12">
 
-            <form ng-submit="signup.handleAuth()" name="SignupForm">
+            <form name="SignupForm" ng-submit="signup.handleAuth() && SignupForm.$valid" novalidate>
 
                 <div class="error-container" ng-show="SignupForm.email.$dirty && SignupForm.email.$invalid">
                     <small class="error" ng-show="SignupForm.email.$error.minlength">Your email is required to be at least 3 characters and valid email format</small>
@@ -27,15 +27,15 @@
 
                 <div class="form-group" ng-class="{'has-error': SignupForm.email.$invalid && SignupForm.email.$touched, 'has-success': SignupForm.email.$valid && SignupForm.email.$touched}">
                     <label for="exampleInputEmail1">Email address</label>
-                    <input name="email" type="email" class="form-control" id="exampleInputEmail1" placeholder="Email" ng-model="signup.user.email" ng-minlength=3 ng-maxlength=16 required>
+                    <input name="email" type="email" class="form-control" id="exampleInputEmail1" placeholder="Email" ng-model="signup.user.email" minlength="3" required>
                 </div>
 
                 <div class="form-group" ng-class="{'has-error': SignupForm.password.$invalid && SignupForm.password.$touched}">
                     <label for="exampleInputPassword1">Password</label>
-                    <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" ng-model="signup.user.password" ng-minlength=3 ng-maxlength=16 required>
+                    <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" ng-model="signup.user.password" minlength="3" maxlength="16" required>
                 </div>
 
-                <button type="submit" class="btn btn-default">Sign Up</button>
+                <button type="submit" class="btn btn-default" ng-disabled="SignupForm.$invalid">Sign Up</button>
 
             </form>
 
