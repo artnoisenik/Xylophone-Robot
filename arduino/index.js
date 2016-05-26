@@ -1,5 +1,7 @@
+require('dotenv').config();
+
 var five = require("johnny-five");
-var socket = require('socket.io-client')('http://localhost:3000');
+var socket = require('socket.io-client')(process.env.DEPLOYED_URL || 'http://localhost:3000');
 
 var board = new five.Board();
 board.on("ready", function() {
@@ -13,12 +15,6 @@ board.on("ready", function() {
     noteB = new five.Led(8);
     noteC2 = new five.Led(9);
 });
-
-// SEQUENCE
-socket.on('sequence', function (sequence) {
-  console.log('in host', sequence);
-})
-
 
 // CHORDS
 socket.on('chordC', function(data) {
