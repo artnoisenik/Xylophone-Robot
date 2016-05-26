@@ -10,7 +10,7 @@
     .then(function(response) {
       if(response.error){
         vm.error = response.error;
-        $state.go('login', null, {reload: true})
+        $state.go('login')
       }else {
         $state.go('loggedin', null, { reload: true })
       }

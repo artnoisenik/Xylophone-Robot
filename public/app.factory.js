@@ -32,6 +32,7 @@
                 })
                 .catch(function(error) {
                     console.log(error.data.error);
+                    return error.data;
                 });
         }
 
