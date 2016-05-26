@@ -14,12 +14,6 @@ board.on("ready", function() {
     noteC2 = new five.Led(9);
 });
 
-// SEQUENCE
-socket.on('sequence', function (sequence) {
-  console.log('in host', sequence);
-})
-
-
 // CHORDS
 socket.on('chordC', function(data) {
     noteC.on();
