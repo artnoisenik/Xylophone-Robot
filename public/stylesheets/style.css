@@ -23,7 +23,8 @@ a {
   text-decoration: none !important;
 }
 
-a:hover, a:visited, a:active {
+a:hover {
+  color: #e600e6;
   text-decoration: none !important;
 }
 
@@ -201,8 +202,6 @@ div.notes:active {
   list-style: none;
 }
 
-
-
-/*.has-success {
-  border: 1px solid green;
-}*/
+.inputStuff {
+  color: white;
+}
