@@ -72,11 +72,11 @@ socket.on('chordG', function(data) {
 
 socket.on('chordA', function(data) {
     noteA.on();
-    noteC.on();
+    noteC2.on();
     console.log('PLAYING CHORD: A IN HOST');
     setTimeout(function() {
         noteA.off();
-        noteC.off();
+        noteC2.off();
         console.log('STOP PLAYING CHORD: A IN HOST');
     }, 20);
 });
@@ -94,11 +94,11 @@ socket.on('chordB', function(data) {
 
 socket.on('chordC2', function(data) {
     noteC2.on();
-    noteG.on();
+    noteC.on();
     console.log('PLAYING CHORD: C2 IN HOST');
     setTimeout(function() {
         noteC2.off();
-        noteG.off();
+        noteC.off();
         console.log('STOP PLAYING CHORD: C2 IN HOST');
     }, 20);
 });
