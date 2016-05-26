@@ -1,7 +1,7 @@
 <div class="dummySignup">
   <a ui-sref="signin">Log in</a>
   <a ui-sref="login">Sign up</a>
-  <a class="pointer" ng-click="main.logout()">Logout</a>
+  <a ng-show="main.isLoggedIn" class="pointer">Logout</a>
 </div>
 
 <div class="row">

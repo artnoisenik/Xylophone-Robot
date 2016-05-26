@@ -14,9 +14,9 @@
         };
     }
 
-    controller.$inject = ['BMFactory', '$state'];
+    controller.$inject = ['BMFactory', '$state', '$scope'];
 
-    function controller(BMFactory, $state) {
+    function controller(BMFactory, $state, $scope) {
         var signup = this;
 
         var authType = $state.current.url;
@@ -24,6 +24,7 @@
             console.log(authType);
             return BMFactory.attemptAuth(authType, signup.user)
                 .then(function() {
+                    console.log($scope);
                     $state.go('home', null, {
                         reload: true
                     });

@@ -21,7 +21,13 @@
 
         var mySocket = BMFactory.mySocket;
 
+        main.isLoggedIn = false;
+
         main.logout = BMFactory.logOut;
+
+        main.isAuth = function () {
+          if ( localStorage.getItem('jwtToken') ) main.isLoggedIn = !main.isLoggedIn;
+        }();
 
         // SEQUENCE
         main.playSequence = function (sequence) {

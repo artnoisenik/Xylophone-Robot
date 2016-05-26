@@ -38,7 +38,7 @@
       // if the next route requires login
       // and we don't have a token
       // then redirect to the homepage
-      if (next.requiresLogin && !localStorage.getItem('token')) {
+      if (next.requiresLogin && !localStorage.getItem('jwtToken')) {
         event.preventDefault();
         $state.go('home');
       }

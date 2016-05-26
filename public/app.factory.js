@@ -5,9 +5,9 @@
         .factory('BMFactory', BMFactory);
 
 
-    BMFactory.$inject = ['$http', '$window', 'socketFactory'];
+    BMFactory.$inject = ['$http', '$window', 'socketFactory', '$state'];
 
-    function BMFactory($http, $window, socketFactory) {
+    function BMFactory($http, $window, socketFactory, $state) {
         var currentUser = null;
 
         var service = {
@@ -39,12 +39,11 @@
         function logOut() {
             currentUser = null;
             destroy();
-            $window.location.reload;
+            // $window.location.reload;
+            $state.go('home');
         }
 
         function save(token) {
-          console.log('hiiii', token);
-          localStorage.setItem('jwtToken', token)
             $window.localStorage['jwtToken'] = token;
         }
 
