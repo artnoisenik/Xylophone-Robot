@@ -18,16 +18,22 @@
 
     function controller($scope, BMFactory, $timeout) {
         var main = this;
-
         var mySocket = BMFactory.mySocket;
 
         main.isLoggedIn = false;
 
-        main.logout = BMFactory.logOut;
+        if ( localStorage.getItem('jwtToken') ) {
+            main.isLoggedIn = !main.isLoggedIn;
+        }
 
-        main.isAuth = function () {
-          if ( localStorage.getItem('jwtToken') ) main.isLoggedIn = !main.isLoggedIn;
-        }();
+        main.logout = function() {
+            BMFactory.logOut();
+            main.isLoggedIn = !main.isLoggedIn;
+        }
+
+        // main.isAuth = function () {
+        //
+        // };
 
         // SEQUENCE
         main.playSequence = function (sequence) {
