@@ -1,8 +1,11 @@
 body {
   padding: 4%;
   font-family: 'Quicksand', sans-serif;
-  background-image: url("background2.jpg");
-  height: 100%;
+  background: url(background2.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .page-header {
@@ -11,17 +14,20 @@ body {
 
 a {
   color: #00B7FF;
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 a:hover, a:visited, a:active {
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 h1 {
   color: #e600e6;
   font-size: 50px;
+}
 
+h1 a, h1 a:hover, h1 a:visited, h1 a:active {
+  color: #e600e6;
 }
 
 .chordsContainer {
