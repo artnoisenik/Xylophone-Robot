@@ -23,10 +23,13 @@
         login.handleAuth = function() {
             console.log(authType);
             return BMFactory.attemptAuth(authType, login.user)
-                .then(function() {
-                    $state.go('loggedin', null, {
-                        reload: true
-                    });
+                .then(function(response) {
+                  if(response.error){
+
+                    login.error = response.error;
+                  }else {
+                    $state.go('loggedin', null, { reload: true })
+                  }
                 });
         };
 
