@@ -1,5 +1,5 @@
 var five = require("johnny-five");
-var socket = require('socket.io-client')('http://localhost:3000/');
+var socket = require('socket.io-client')('https://boiling-ravine-61587.herokuapp.com/');
 
 var board = new five.Board();
 board.on("ready", function() {
