@@ -23,8 +23,8 @@
 
         // SEQUENCE
         main.playSequence = function (sequence) {
-          mySocket.emit('sequence', sequence);
-          console.log('in directive', sequence);
+          mySocket.emit('sequence', sequence.toUpperCase());
+          console.log('in directive', sequence.toUpperCase());
         }
 
         // CHORDS
