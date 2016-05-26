@@ -5,6 +5,22 @@
 
 <div class="row">
   <div class="col-md-2">
+    <div class="notesTitle rwd-break">Notes:</div>
+  </div>
+  <div class="col-md-10">
+    <div class="notes" ng-click="playNoteC()">C</div>
+    <div class="notes" ng-click="playNoteD()">D</div>
+    <div class="notes" ng-click="playNoteE()">E</div>
+    <div class="notes" ng-click="playNoteF()">F</div>
+    <div class="notes" ng-click="playNoteG()">G</div>
+    <div class="notes" ng-click="playNoteA()">A</div>
+    <div class="notes" ng-click="playNoteB()">B</div>
+    <div class="notes" ng-click="playNoteC2()">C</div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-2">
     <div class="chordsTitle rwd-break">Chords:</div>
   </div>
   <div class="col-md-10">
@@ -21,29 +37,15 @@
 
 <div class="row">
   <div class="col-md-12">
-    <textarea class="sequenceForm"  name="sequence" rows="4" cols="120" placeholder="Put your sequence here"></textarea>
-  </div>
+    <form ng-submit="main.playSequence(main.sequence)">
 
-</div>
+      <textarea ng-model="main.sequence" class="sequenceForm" name="sequence" rows="4" cols="120" placeholder="Put your sequence here"></textarea>
 
 
-<div class="buttonDiv">
-  <button type="button" class="btn btn-primary btn-lg orangeBtn">Play</button>
-  <button type="button" class="btn btn-primary btn-lg orangeBtn">Save</button>
-</div>
-
-<div class="row">
-  <div class="col-md-2">
-    <div class="notesTitle rwd-break">Notes:</div>
-  </div>
-  <div class="col-md-10">
-    <div class="notes" ng-click="playNoteC()">C</div>
-    <div class="notes" ng-click="playNoteD()">D</div>
-    <div class="notes" ng-click="playNoteE()">E</div>
-    <div class="notes" ng-click="playNoteF()">F</div>
-    <div class="notes" ng-click="playNoteG()">G</div>
-    <div class="notes" ng-click="playNoteA()">A</div>
-    <div class="notes" ng-click="playNoteB()">B</div>
-    <div class="notes" ng-click="playNoteC2()">C</div>
+      <div class="buttonDiv">
+        <input type="submit" class="btn btn-primary btn-lg orangeBtn" value="Play">
+        <button type="button" class="btn btn-primary btn-lg orangeBtn" ng-click="saveSequence()">Save</button>
+      </div>
+    </form>
   </div>
 </div>

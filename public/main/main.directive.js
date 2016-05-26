@@ -21,6 +21,12 @@
 
         var mySocket = BMFactory.mySocket;
 
+        // SEQUENCE
+        main.playSequence = function (sequence) {
+          mySocket.emit('sequence', sequence);
+          console.log('in directive', sequence);
+        }
+
         // CHORDS
         $scope.playChordC = function() {
           mySocket.emit('chordC');
