@@ -10,14 +10,14 @@
         <div class="notesTitle rwd-break">Notes:</div>
     </div>
     <div class="col-md-10">
-        <div class="notes" ng-click="playNoteC()">C</div>
-        <div class="notes" ng-click="playNoteD()">D</div>
-        <div class="notes" ng-click="playNoteE()">E</div>
-        <div class="notes" ng-click="playNoteF()">F</div>
-        <div class="notes" ng-click="playNoteG()">G</div>
-        <div class="notes" ng-click="playNoteA()">A</div>
-        <div class="notes" ng-click="playNoteB()">B</div>
-        <div class="notes" ng-click="playNoteC2()">C</div>
+        <div class="notes" ng-click="main.playSequence('C')">C</div>
+        <div class="notes" ng-click="main.playSequence('D')">D</div>
+        <div class="notes" ng-click="main.playSequence('E')">E</div>
+        <div class="notes" ng-click="main.playSequence('F')">F</div>
+        <div class="notes" ng-click="main.playSequence('G')">G</div>
+        <div class="notes" ng-click="main.playSequence('A')">A</div>
+        <div class="notes" ng-click="main.playSequence('B')">B</div>
+        <div class="notes" ng-click="main.playSequence('C2')">C</div>
     </div>
 </div>
 
@@ -26,14 +26,14 @@
         <div class="chordsTitle rwd-break">Chords:</div>
     </div>
     <div class="col-md-10">
-        <div class="chords" ng-click="playChordC()">C</div>
-        <div class="chords" ng-click="playChordD()">D</div>
-        <div class="chords" ng-click="playChordE()">E</div>
-        <div class="chords" ng-click="playChordF()">F</div>
-        <div class="chords" ng-click="playChordG()">G</div>
-        <div class="chords" ng-click="playChordA()">A</div>
-        <div class="chords" ng-click="playChordB()">B</div>
-        <div class="chords" ng-click="playChordC2()">C</div>
+        <div class="chords" ng-click="main.playSequence('C\'')">C</div>
+        <div class="chords" ng-click="main.playSequence('D\'')">D</div>
+        <div class="chords" ng-click="main.playSequence('E\'')">E</div>
+        <div class="chords" ng-click="main.playSequence('F\'')">F</div>
+        <div class="chords" ng-click="main.playSequence('G\'')">G</div>
+        <div class="chords" ng-click="main.playSequence('A\'')">A</div>
+        <div class="chords" ng-click="main.playSequence('B\'')">B</div>
+        <div class="chords" ng-click="main.playSequence('C2\'')">C</div>
     </div>
 </div>
 
@@ -93,7 +93,7 @@
             <p>
                 <strong>{{ song.title }}:</strong>
                 {{ song.song }}
-                <button type="button" class="btn" ng-click="main.playSong(song.song)">Play</button>
+                <button type="button" class="btn" ng-click="main.playSequence(song.song)">Play</button>
                 <button type="button" class="btn" ng-click="main.deleteSong(song.id)">Delete</button>
             </p>
         </div>
@@ -134,7 +134,7 @@
             <p>
                 <strong>{{ song.title }}:</strong>
                 {{ song.song }}
-                <button type="button" class="btn" ng-click="main.playSong(song.song)">Play</button>
+                <button type="button" class="btn" ng-click="main.playSequence(song.song)">Play</button>
             </p>
         </div>
 
