@@ -79,7 +79,7 @@ router.get('/userSongs/:token', function(req, res, next) {
   var user = jwt.verify(req.params.token, process.env.JWT_SECRET);
   knex('songs')
     .where('user_id', user.id)
-    .select('songs.title', 'songs.song', 'songs.user_id')
+    .select('songs.title', 'songs.song', 'songs.user_id', 'songs.id')
     .then(function(userSongs) {
       res.json(userSongs);
     });
@@ -89,6 +89,15 @@ router.post('/saveSong', function(req, res, next) {
   var user = jwt.verify(req.body.token, process.env.JWT_SECRET);
   knex('songs')
     .insert({ user_id: user.id, title: req.body.title, song: req.body.song})
+    .then(function() {
+      res.end();
+    });
+});
+
+router.post('/deleteUserSong', function(req, res, next) {
+  knex('songs')
+    .where({ id: req.body.songId })
+    .delete()
     .then(function() {
       res.end();
     });
