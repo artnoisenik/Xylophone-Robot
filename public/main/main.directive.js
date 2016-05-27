@@ -59,13 +59,15 @@
                     return main.allSongs = res.data;
                 }
             });
-            BMFactory.getUserSongs().then(function(res) {
-                if (res.status !== 200) {
-                    console.log(res);
-                } else {
-                    return main.userSongs = res.data;
-                }
-            });
+            if ($window.localStorage['jwtToken']) {
+                BMFactory.getUserSongs().then(function(res) {
+                    if (res.status !== 200) {
+                        console.log(res);
+                    } else {
+                        return main.userSongs = res.data;
+                    }
+                });
+            }
         }
 
         main.deleteSong = function(songId) {
