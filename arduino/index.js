@@ -1,9 +1,7 @@
 //require('dotenv').config();
 
 var five = require("johnny-five");
-// var socket = require('socket.io-client')(process.env.DEPLOYED_URL || 'http://localhost:3000');
-var socket = require('socket.io-client')('http://localhost:3000');
-
+var socket = require('socket.io-client')(process.env.DEPLOYED_URL || 'http://localhost:3000');
 
 var board = new five.Board();
 board.on("ready", function() {
