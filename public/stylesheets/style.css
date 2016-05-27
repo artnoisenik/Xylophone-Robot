@@ -22,12 +22,12 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: #b2ffb2;
   text-decoration: none !important;
 }
 
 .loginNav, .loginNav:hover {
-  color: #00B7FF;
+  color: #777;
 }
 
 a:hover {

@@ -105,8 +105,7 @@
     <div class="col-md-12">
         <h4 class="whiteFont">Instructions:
         </h4>
-        <p class="whiteFont">Compose full songs by typing out quarter notes, chords, and rests. <a ui-sref="login">Sign up</a> or <a ng-hide="main.isLoggedIn" ui-sref="signin">log in</a>
- to save your sequence.</p>
+        <p class="whiteFont">Compose full songs by typing out quarter notes, chords, and rests.</p>
         <ul class="whiteFont">
             <li>For notes use their corresponding letters
                 <i>(i.e. a b c d e f g)</i>
@@ -115,6 +114,7 @@
                 <i>(ex: e' b' g')</i>
             </li>
             <li>The period character represents a rest (ex: e . f')</li>
+            <li ng-hide="main.isLoggedIn"><a ui-sref="login">Sign up</a> or <a ui-sref="signin">log in</a> to save your sequence.</li>
             <li>Remember to separate everything with a space!</li>
         </ul>
         <div class="sampleStuff">
