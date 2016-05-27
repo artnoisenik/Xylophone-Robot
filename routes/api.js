@@ -86,12 +86,18 @@ router.get('/userSongs/:token', function(req, res, next) {
 });
 
 router.post('/saveSong', function(req, res, next) {
+  if (!req.body.title) {
+    res.status(422).send({
+      error: "Title is required for saving."
+    })
+  } else {
   var user = jwt.verify(req.body.token, process.env.JWT_SECRET);
   knex('songs')
     .insert({ user_id: user.id, title: req.body.title, song: req.body.song})
     .then(function() {
       res.end();
     });
+  }
 });
 
 router.post('/deleteUserSong', function(req, res, next) {
