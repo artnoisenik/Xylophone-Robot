@@ -6,13 +6,6 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const io = require('../lib/io');
 
-
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  console.log("hello");
-  res.json('hello');
-});
-//api/v1/test get request
 router.post('/users/signup', valid.register, function(req, res, next) {
 
   const user = req.body.user;
@@ -75,12 +68,20 @@ router.post('/users/login', valid.login, function(req, res, next) {
 });
 
 router.get('/songs', function(req, res, next) {
-  // var user = jwt.verify(req.body.token, process.env.JWT_SECRET);
   knex('songs')
-    .join('users', 'songs.user_id', 'users.id')
-    .select('songs.title', 'songs.song', 'songs.user_id')
+    .select('songs.title', 'songs.song')
     .then(function(songs) {
       res.json(songs);
+    });
+});
+
+router.get('/userSongs/:token', function(req, res, next) {
+  var user = jwt.verify(req.params.token, process.env.JWT_SECRET);
+  knex('songs')
+    .where('user_id', user.id)
+    .select('songs.title', 'songs.song', 'songs.user_id')
+    .then(function(userSongs) {
+      res.json(userSongs);
     });
 });
 
@@ -92,9 +93,5 @@ router.post('/saveSong', function(req, res, next) {
       res.end();
     });
 });
-
-// router.get('/users/logout', function (req, res, next) {
-//   localStorage.clear();
-// })
 
 module.exports = router;

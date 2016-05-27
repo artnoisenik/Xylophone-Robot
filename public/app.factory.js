@@ -11,6 +11,7 @@
 
         var service = {
             getAllSongs,
+            getUserSongs,
             attemptAuth,
             logOut,
             save,
@@ -24,6 +25,17 @@
 
         function getAllSongs() {
             return $http.get('/api/v1/songs')
+                .then(function(res) {
+                    return res;
+                })
+                .catch(function(err) {
+                    return err;
+                });
+        }
+
+        function getUserSongs() {
+            var token = $window.localStorage['jwtToken'];
+            return $http.get('/api/v1/userSongs/' + token)
                 .then(function(res) {
                     return res;
                 })
