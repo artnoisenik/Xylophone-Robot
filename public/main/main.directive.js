@@ -88,7 +88,12 @@
         }
 
         main.playSong = function(song) {
-            mySocket.emit('song', song.toUpperCase());
+            let bpm = 60000 / main.bpm.value;
+            let play = song.toUpperCase();
+            mySocket.emit('song', {
+                play,
+                bpm
+            });
             console.log('in directive', song.toUpperCase());
         }
 
