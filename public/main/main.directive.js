@@ -20,6 +20,8 @@
         var main = this;
         var mySocket = BMFactory.mySocket;
 
+        main.showUserSongs = false;
+
         main.bpm = {
             value: 120,
             options: {
@@ -36,6 +38,7 @@
 
         if ($window.localStorage['jwtToken']) {
             main.canSave = !main.canSave;
+            main.showUserSongs = !main.showUserSongs;
         }
 
         main.isLoggedIn = false;
@@ -45,6 +48,7 @@
         }
 
         main.allSongs = [];
+        main.userSongs = [];
         activate();
 
         function activate() {
@@ -52,18 +56,37 @@
                 if (res.status !== 200) {
                     console.log(res);
                 } else {
-                    console.log(res.data);
                     return main.allSongs = res.data;
+                }
+            });
+            if ($window.localStorage['jwtToken']) {
+                BMFactory.getUserSongs().then(function(res) {
+                    if (res.status !== 200) {
+                        console.log(res);
+                    } else {
+                        return main.userSongs = res.data;
+                    }
+                });
+            }
+        }
+
+        main.deleteSong = function(songId) {
+            BMFactory.deleteUserSong(songId).then(function(res) {
+                if (res.status !== 200) {
+                    console.log(res);
+                } else {
+                    activate();
                 }
             });
         }
 
         main.logout = function() {
-                BMFactory.logOut();
-                main.isLoggedIn = !main.isLoggedIn;
-                main.canSave = !main.canSave;
-            }
-            // SAVED SONGS
+            BMFactory.logOut();
+            main.isLoggedIn = !main.isLoggedIn;
+            main.canSave = !main.canSave;
+            main.showUserSongs = !main.showUserSongs;
+        }
+
         main.playSong = function(song) {
             mySocket.emit('song', song.toUpperCase());
             console.log('in directive', song.toUpperCase());

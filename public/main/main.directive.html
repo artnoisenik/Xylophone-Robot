@@ -85,30 +85,47 @@
     </div>
 </div>
 
-<div class="row">
+<div class="row row-space" ng-show="main.showUserSongs">
     <div class="col-md-12">
-        <h4 class="whiteFont">Instructions:
-        </h4>
-        <p class="whiteFont">Our proprietary Sequence Generator allows you to hastly compose a song by typing in a series notes and chords</p>
-        <ul class="whiteFont">
-            <li>To add a note, simply type in its corresponding letter
-                <i>(i.e. a, b, c, d, e, f, or g)</i>
-            </li>
-            <li>To add a chord, add a ' character after the note's name
-                <i>(ex: e', b', g')</i>
-            </li>
-            <li>Seperate each note / chord with a space</li>
-            <li>The period character represents a rest</li>
-            <li>Each note / chord / rest will be treated as a quarter note</li>
-            <li>Example Song: Mary Had a Little Lamb</li>
-            <li id="example">
-                <i>C C G G A A G' . F F E E D D C' . G G F F E E D' . G G F F E E D' . C C G G A A G' . F F E E D D C2'</i>
-            </li>
-        </ul>
+
+        <h4 class="whiteFont">My Songs:</h4>
+        <div class="whiteFont" ng-repeat="song in main.userSongs">
+            <p>
+                <strong>{{ song.title }}:</strong>
+                {{ song.song }}
+                <button type="button" class="btn" ng-click="main.playSong(song.song)">Play</button>
+                <button type="button" class="btn" ng-click="main.deleteSong(song.id)">Delete</button>
+            </p>
+        </div>
+
     </div>
 </div>
 
-<div class="row">
+<div class="row row-space">
+    <div class="col-md-12">
+        <h4 class="whiteFont">Instructions:
+        </h4>
+        <p class="whiteFont">Compose full songs by typing out quarter notes, chords, and rests.</p>
+        <ul class="whiteFont">
+            <li>For notes use their corresponding letters
+                <i>(i.e. a b c d e f g)</i>
+            </li>
+            <li>For chords use their corresponding letters and apostrophe
+                <i>(ex: e' b' g')</i>
+            </li>
+            <li>The period character represents a rest (ex: e . f')</li>
+            <li ng-hide="main.isLoggedIn"><a ui-sref="login">Sign up</a> or <a ui-sref="signin">log in</a> to save your sequence.</li>
+            <li>Remember to separate everything with a space!</li>
+        </ul>
+        <div class="sampleStuff">
+          <h4 class="whiteFont sampleTitle">Example Song: Mary Had a Little Lamb:
+          </h4>
+          <p class="whiteFont sampleSong"><i>C C G G A A G' . F F E E D D C' . G G F F E E D' . G G F F E E D' . C C G G A A G' . F F E E D D C2'</i></p>
+        </div>
+    </div>
+</div>
+
+<div class="row row-space">
     <div class="col-md-12">
 
         <h4 class="whiteFont">Song Library:</h4>
@@ -117,7 +134,7 @@
             <p>
                 <strong>{{ song.title }}:</strong>
                 {{ song.song }}
-                <button type="button" class="btn" ng-click="main.playSong(song.song)">PLAY</button>
+                <button type="button" class="btn" ng-click="main.playSong(song.song)">Play</button>
             </p>
         </div>
 
