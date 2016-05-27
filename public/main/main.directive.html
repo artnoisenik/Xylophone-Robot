@@ -45,9 +45,9 @@
         <h4 class="whiteFont">Sequence Generator</h4>
         <textarea ng-model="main.sequence" class="sequenceForm" name="sequence" rows="4" cols="120" placeholder="Type a sequence here"></textarea>
 
-        <div class="slideDiv">
+        <div class="slideDiv no-select">
           <label for="bpm" class="whiteFont">BPM: </label>
-          <rzslider
+          <rzslider class="whiteFont"
             rz-slider-model="main.bpm.value"
             rz-slider-options="main.bpm.options">
           </rzslider>

@@ -21,18 +21,14 @@
     var mySocket = BMFactory.mySocket;
 
     main.bpm = {
-      value: 200,
+      value: 120,
       options: {
-        floor: 100,
-        ceil: 2000,
-        step: 50,
-        showSelectionBar: true,
+        floor: 60,
+        ceil: 300,
+        step: 10,
         getPointerColor: function(value) {
-            if (value <= 500) return 'yellow';
-            if (value <= 1000) return 'orange';
-            if (value <= 1500) return 'green';
-            return '#2AE02A';
-        }
+            return '#e600e6';
+        },
       },
     };
 
@@ -53,7 +49,7 @@
 
     // SEQUENCE
     main.playSequence = function (sequence) {
-      let bpm = main.bpm.value;
+      let bpm = 60000 / main.bpm.value;
       let seq = sequence.toUpperCase();
       mySocket.emit('sequence', {seq, bpm});
       console.log('in directive', sequence.toUpperCase());
