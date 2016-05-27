@@ -1,4 +1,4 @@
-require('dotenv').config();
+//require('dotenv').config();
 
 var five = require("johnny-five");
 // var socket = require('socket.io-client')(process.env.DEPLOYED_URL || 'http://localhost:3000');
