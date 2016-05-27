@@ -171,13 +171,13 @@ div.notes:active {
 @media only screen and (max-width: 500px) {
     .notes {
         width: 18%;
-        font-size: .6em;
+        font-size: .8em;
         height: 30px;
         margin: 5px;
     }
     .chords {
         width: 18%;
-        font-size: .6em;
+        font-size: .8em;
         height: 30px;
         margin: 5px;
     }
