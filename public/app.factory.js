@@ -4,7 +4,6 @@
     angular.module('app')
         .factory('BMFactory', BMFactory);
 
-
     BMFactory.$inject = ['$http', '$window', 'socketFactory', '$state'];
 
     function BMFactory($http, $window, socketFactory, $state) {

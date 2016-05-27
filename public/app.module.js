@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  const dependencies = ['ui.router', 'btford.socket-io'];
+  const dependencies = ['ui.router', 'btford.socket-io', 'rzModule'];
 
   angular.module('app', dependencies)
     .config(setupRoutes)
