@@ -23,6 +23,10 @@ a {
   text-decoration: none !important;
 }
 
+.loginNav, .loginNav:hover {
+  color: #00B7FF;
+}
+
 a:hover {
   color: #e600e6;
   text-decoration: none !important;
@@ -82,6 +86,7 @@ div.chords:active {
   border: 2px solid white;
   display: inline-block;
   margin-left: 3%;
+  margin-bottom: 3%;
   padding: 2%;
   border-radius: 10px;
   cursor: pointer;
@@ -142,12 +147,10 @@ div.notes:active {
 }
 
 .footie {
-  /*position: fixed;*/
   margin-bottom: -10%;
   margin-top: 5%;
   right: 0%;
   left: 0%;
-  /*text-align: center;*/
 }
 
 .authors {
@@ -167,14 +170,16 @@ div.notes:active {
 
 @media only screen and (max-width: 500px) {
     .notes {
-        width: 12%;
+        width: 18%;
         font-size: .6em;
         height: 30px;
+        margin: 5px;
     }
     .chords {
-        width: 12%;
+        width: 18%;
         font-size: .6em;
         height: 30px;
+        margin: 5px;
     }
     .rwd-break {
       display: block;
