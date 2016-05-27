@@ -74,15 +74,27 @@ router.post('/users/login', valid.login, function(req, res, next) {
       })
 });
 
-// router.post('/saveSong', function(req, res, next) {
-//   console.log(req.body);
-//   knex('songs')
-//     .
-//   res.end();
-// });
+router.get('/songs', function(req, res, next) {
+  // var user = jwt.verify(req.body.token, process.env.JWT_SECRET);
+  knex('songs')
+    .join('users', 'songs.user_id', 'users.id')
+    .select('songs.title', 'songs.song', 'songs.user_id')
+    .then(function(songs) {
+      res.json(songs);
+    });
+});
 
-router.get('/users/logout', function (req, res, next) {
-  localStorage.clear();
-})
+router.post('/saveSong', function(req, res, next) {
+  var user = jwt.verify(req.body.token, process.env.JWT_SECRET);
+  knex('songs')
+    .insert({ user_id: user.id, title: req.body.title, song: req.body.song})
+    .then(function() {
+      res.end();
+    });
+});
+
+// router.get('/users/logout', function (req, res, next) {
+//   localStorage.clear();
+// })
 
 module.exports = router;

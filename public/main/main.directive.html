@@ -39,17 +39,55 @@
 
 <div class="row">
   <div class="col-md-12">
-    <form ng-submit="main.playSequence(main.sequence)">
 
-      <h4 class="whiteFont">Sequence Generator</h4>
-      <textarea ng-model="main.sequence" class="sequenceForm" name="sequence" rows="4" cols="120" placeholder="Type a sequence here"></textarea>
+    <form ng-submit="main.playSequence(main.sequence.song)">
 
+      <h4 class="whiteFont">Sequence Generator:</h4>
 
-      <div class="buttonDiv">
-        <input type="submit" class="btn btn-primary btn-lg orangeBtn" value="Play">
-        <button type="button" class="btn btn-primary btn-lg orangeBtn" ng-click="main.saveSequence(main.sequence)">Save</button>
+      <div class="row">
+        <div class="col-md-offset-4 col-md-4">
+
+          <div class="form-group">
+            <input class="form-control text-center"
+                   type="text"
+                   placeholder="Song Title"
+                   ng-model="main.sequence.songTitle">
+          </div>
+
+        </div>
       </div>
+
+      <div class="row">
+        <div class="col-md-offset-2 col-md-8">
+
+          <div class="form-group">
+            <textarea ng-model="main.sequence.song"
+                      class="form-control text-center"
+                      name="sequence"
+                      rows="4"
+                      cols="120"
+                      placeholder="Type a sequence here"></textarea>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-offset-5 col-md-3 buttonDiv">
+
+            <button type="submit"
+                    class="btn btn-primary btn-lg orangeBtn text-center">Play</button>
+
+            <button type="button"
+                    class="btn btn-primary btn-lg orangeBtn text-center"
+                    ng-click="main.saveSequence(main.sequence)"
+                    ng-disabled="main.canSave">Save</button>
+
+        </div>
+      </div>
+
     </form>
+
   </div>
 </div>
 
@@ -66,5 +104,20 @@
         <li>Example Song: Mary Had a Little Lamb</li>
           <li id="example"><i>C C G G A A G' . F F E E D D C' . G G F F E E D' . G G F F E E D' . C C G G A A G' . F F E E D D C2'</i></li>
       </ul>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+
+    <h4 class="whiteFont">Song Library:</h4>
+
+    <div class="whiteFont" ng-repeat="song in main.allSongs">
+      <p>
+        <strong>{{ song.title }}:</strong> {{ song.song }}
+        <button type="button" class="btn" ng-click="main.playSong(song.song)">PLAY</button>
+      </p>
+    </div>
+
   </div>
 </div>

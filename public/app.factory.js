@@ -11,6 +11,7 @@
         var currentUser = null;
 
         var service = {
+            getAllSongs,
             attemptAuth,
             logOut,
             save,
@@ -22,8 +23,20 @@
 
         return service;
 
+        function getAllSongs() {
+            return $http.get('/api/v1/songs')
+                .then(function(res) {
+                    return res;
+                })
+                .catch(function(err) {
+                    return err;
+                });
+        }
+
         function attemptAuth(authType, user) {
-            return $http.post('/api/v1/users' + authType, {user: user})
+            return $http.post('/api/v1/users' + authType, {
+                    user: user
+                })
                 .then(function(response) {
                     save(response.data.token);
                     currentUser = response.data.id;
@@ -42,8 +55,11 @@
         }
 
         function saveSong(song) {
-            console.log(song);
-            return $http.post('/api/v1/saveSong', {'song': song} )
+            return $http.post('/api/v1/saveSong', {
+                    'title': song.songTitle,
+                    'song': song.song,
+                    'token': $window.localStorage['jwtToken']
+                })
                 .then(function(response) {
                     return response;
                 })

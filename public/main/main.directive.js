@@ -14,21 +14,46 @@
         };
     }
 
-    controller.$inject = ['$scope', 'BMFactory', '$timeout'];
+    controller.$inject = ['$scope', 'BMFactory', '$timeout', '$window'];
 
-    function controller($scope, BMFactory, $timeout) {
+    function controller($scope, BMFactory, $timeout, $window) {
         var main = this;
         var mySocket = BMFactory.mySocket;
 
+        main.canSave = true;
+
+        if ($window.localStorage['jwtToken']) {
+            main.canSave = false;
+        }
+
         main.isLoggedIn = false;
 
-        if ( localStorage.getItem('jwtToken') ) {
+        if (localStorage.getItem('jwtToken')) {
             main.isLoggedIn = !main.isLoggedIn;
+        }
+
+        main.allSongs = [];
+        activate();
+
+        function activate() {
+            BMFactory.getAllSongs().then(function(res) {
+                if (res.status !== 200) {
+                    console.log(res);
+                } else {
+                    console.log(res.data);
+                    return main.allSongs = res.data;
+                }
+            });
         }
 
         main.logout = function() {
             BMFactory.logOut();
             main.isLoggedIn = !main.isLoggedIn;
+        }
+        // SAVED SONGS
+        main.playSong = function(song) {
+          mySocket.emit('song', song.toUpperCase());
+          console.log('in directive', song.toUpperCase());
         }
 
         // SEQUENCE
@@ -38,7 +63,14 @@
         }
 
         main.saveSequence = function(song) {
-            BMFactory.saveSong(song);
+            BMFactory.saveSong(song).then(function(res) {
+                if (res.status !== 200) {
+                    console.log(res);
+                } else {
+                    activate();
+                    main.sequence = {};
+                }
+            });
         }
 
         // CHORDS

@@ -51,7 +51,6 @@ h1 a, h1 a:hover, h1 a:visited, h1 a:active {
   display: inline-block;
 }
 
-
 .chords {
   color: #ffffff;
   border: 2px solid white;
@@ -98,19 +97,6 @@ div.chords:active {
 
 div.notes:active {
     background-color: peachpuff;
-    }
-
-.sequenceForm {
-  margin-top: 6%;
-  width: 66%;
-  height: 60px;
-  text-align: center;
-  margin-left: 20%;
-}
-
-.buttonDiv {
-  text-align: center;
-  margin-left: 6%;
 }
 
 .orangeBtn {
@@ -209,4 +195,8 @@ div.notes:active {
 
 .inputStuff {
   color: white;
+}
+
+.songs {
+  color: #ffffff;
 }
