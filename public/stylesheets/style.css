@@ -206,10 +206,6 @@ ul.authors {
   font-size: 18px;
 }
 
-.has-error > input {
-  border: 3px solid red;
-}
-
 .pointer{
   cursor: pointer;
 }
@@ -224,4 +220,8 @@ ul.authors {
 
 .row-space {
   margin-top: 40px;
+}
+
+.has-error > input {
+  border: 3px solid red;
 }
