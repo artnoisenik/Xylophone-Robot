@@ -85,6 +85,22 @@
     </div>
 </div>
 
+<div class="row" ng-show="main.showUserSongs">
+    <div class="col-md-12">
+
+        <h4 class="whiteFont">My Songs:</h4>
+
+        <div class="whiteFont" ng-repeat="song in main.userSongs">
+            <p>
+                <strong>{{ song.title }}:</strong>
+                {{ song.song }}
+                <button type="button" class="btn" ng-click="main.playSong(song.song)">PLAY</button>
+            </p>
+        </div>
+
+    </div>
+</div>
+
 <div class="row">
     <div class="col-md-12">
         <h4 class="whiteFont">Instructions:

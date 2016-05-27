@@ -20,6 +20,8 @@
         var main = this;
         var mySocket = BMFactory.mySocket;
 
+        main.showUserSongs = false;
+
         main.bpm = {
             value: 120,
             options: {
@@ -36,6 +38,7 @@
 
         if ($window.localStorage['jwtToken']) {
             main.canSave = !main.canSave;
+            main.showUserSongs = !main.showUserSongs;
         }
 
         main.isLoggedIn = false;
@@ -45,6 +48,7 @@
         }
 
         main.allSongs = [];
+        main.userSongs = [];
         activate();
 
         function activate() {
@@ -56,14 +60,34 @@
                     return main.allSongs = res.data;
                 }
             });
+            BMFactory.getUserSongs().then(function(res) {
+                if (res.status !== 200) {
+                    console.log(res);
+                } else {
+                    console.log('user songs', res.data);
+                    return main.userSongs = res.data;
+                }
+            });
         }
 
+        // main.userSongs = function() {
+        //     BMFactory.getUserSongs().then(function(res) {
+        //         if (res.status !== 200) {
+        //             console.log(res);
+        //         } else {
+        //             console.log(res.data);
+        //             return main.userSongs = res.data;
+        //         }
+        //     });
+        // }
+
         main.logout = function() {
-                BMFactory.logOut();
-                main.isLoggedIn = !main.isLoggedIn;
-                main.canSave = !main.canSave;
-            }
-            // SAVED SONGS
+            BMFactory.logOut();
+            main.isLoggedIn = !main.isLoggedIn;
+            main.canSave = !main.canSave;
+            main.showUserSongs = !main.showUserSongs;
+        }
+
         main.playSong = function(song) {
             mySocket.emit('song', song.toUpperCase());
             console.log('in directive', song.toUpperCase());

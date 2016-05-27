@@ -15,7 +15,6 @@ exports.register = function(req, res, next){
 
 exports.login = function(req, res, next){
   const body = req.body.user;
-  console.log(body);
   if(!body || !body.email || !body.password){
     res.status(422).send({ error: 'Both fields are required' });
   } else {

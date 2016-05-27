@@ -1,5 +1,5 @@
 body {
-  padding: 4%;
+  padding: 40px 4%;
   font-family: 'Quicksand', sans-serif;
   background: url(background2.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -136,21 +136,23 @@ div.notes:active {
 }
 
 .footie {
-  margin-bottom: -10%;
-  margin-top: 5%;
+  margin-top: 80px;
   right: 0%;
   left: 0%;
 }
 
-.authors {
-  text-align: center;
+ul.authors {
+  margin: 0;
+  padding: 0;
 }
 
 .authors li {
   list-style-type: none;
   display: inline;
   color: white;
-  margin-left: 2%;
+  padding: 0;
+  margin-left: 1%;
+  margin-right: 1%;
 }
 
 .rwd-break {
