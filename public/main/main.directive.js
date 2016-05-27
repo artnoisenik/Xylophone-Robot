@@ -22,6 +22,10 @@
 
         main.showUserSongs = false;
 
+        main.stop = function () {
+          mySocket.emit('stop');
+        }
+
         main.bpm = {
             value: 120,
             options: {
