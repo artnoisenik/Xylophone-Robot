@@ -1,62 +1,72 @@
-<div class="dummySignup">
-  <a ng-hide="main.isLoggedIn" ui-sref="signin">Log in</a>
-  <a class="loginNav" ng-hide="main.isLoggedIn">|</a>
-  <a ng-hide="main.isLoggedIn" ui-sref="login">Sign up</a>
-  <a ng-show="main.isLoggedIn" class="pointer" ng-click="main.logout()">Logout</a>
-</div>
-
-<div class="row">
-  <div class="col-md-2">
-    <div class="notesTitle rwd-break">Notes:</div>
+<span ng-cloak>
+  <div class="dummySignup">
+    <a ng-hide="main.isLoggedIn" ui-sref="signin">Log in</a>
+    <a class="loginNav" ng-hide="main.isLoggedIn">|</a>
+    <a ng-hide="main.isLoggedIn" ui-sref="login">Sign up</a>
+    <a ng-show="main.isLoggedIn" class="pointer" ng-click="main.logout()">Logout</a>
   </div>
-  <div class="col-md-10">
-    <div class="notes" ng-click="playNoteC()">C</div>
-    <div class="notes" ng-click="playNoteD()">D</div>
-    <div class="notes" ng-click="playNoteE()">E</div>
-    <div class="notes" ng-click="playNoteF()">F</div>
-    <div class="notes" ng-click="playNoteG()">G</div>
-    <div class="notes" ng-click="playNoteA()">A</div>
-    <div class="notes" ng-click="playNoteB()">B</div>
-    <div class="notes" ng-click="playNoteC2()">C</div>
+
+  <div class="row no-select">
+    <div class="col-md-2">
+      <div class="notesTitle rwd-break">Notes:</div>
+    </div>
+    <div class="col-md-10">
+      <div class="notes" ng-click="playNoteC()">C</div>
+      <div class="notes" ng-click="playNoteD()">D</div>
+      <div class="notes" ng-click="playNoteE()">E</div>
+      <div class="notes" ng-click="playNoteF()">F</div>
+      <div class="notes" ng-click="playNoteG()">G</div>
+      <div class="notes" ng-click="playNoteA()">A</div>
+      <div class="notes" ng-click="playNoteB()">B</div>
+      <div class="notes" ng-click="playNoteC2()">C</div>
+    </div>
   </div>
-</div>
 
-<div class="row">
-  <div class="col-md-2">
-    <div class="chordsTitle rwd-break">Chords:</div>
+  <div class="row no-select">
+    <div class="col-md-2">
+      <div class="chordsTitle rwd-break">Chords:</div>
+    </div>
+    <div class="col-md-10">
+      <div class="chords" ng-click="playChordC()">C</div>
+      <div class="chords" ng-click="playChordD()">D</div>
+      <div class="chords" ng-click="playChordE()">E</div>
+      <div class="chords" ng-click="playChordF()">F</div>
+      <div class="chords" ng-click="playChordG()">G</div>
+      <div class="chords" ng-click="playChordA()">A</div>
+      <div class="chords" ng-click="playChordB()">B</div>
+      <div class="chords" ng-click="playChordC2()">C</div>
+    </div>
   </div>
-  <div class="col-md-10">
-    <div class="chords" ng-click="playChordC()">C</div>
-    <div class="chords" ng-click="playChordD()">D</div>
-    <div class="chords" ng-click="playChordE()">E</div>
-    <div class="chords" ng-click="playChordF()">F</div>
-    <div class="chords" ng-click="playChordG()">G</div>
-    <div class="chords" ng-click="playChordA()">A</div>
-    <div class="chords" ng-click="playChordB()">B</div>
-    <div class="chords" ng-click="playChordC2()">C</div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <form ng-submit="main.playSequence(main.sequence)">
+
+        <h4 class="whiteFont">Sequence Generator</h4>
+        <textarea ng-model="main.sequence" class="sequenceForm" name="sequence" rows="4" cols="120" placeholder="Type a sequence here"></textarea>
+
+        <div class="slideDiv">
+          <label for="bpm" class="whiteFont">BPM: </label>
+          <rzslider
+            rz-slider-model="main.bpm.value"
+            rz-slider-options="main.bpm.options">
+          </rzslider>
+
+
+        </div>
+
+        <div class="buttonDiv">
+          <input type="submit" class="btn btn-primary btn-lg orangeBtn" value="Play">
+          <button type="button" class="btn btn-primary btn-lg orangeBtn" ng-click="saveSequence(main.sequence)">Save</button>
+        </div>
+      </form>
+    </div>
   </div>
-</div>
 
-<div class="row">
-  <div class="col-md-12">
-    <form ng-submit="main.playSequence(main.sequence)">
-
-      <h4 class="whiteFont">Sequence Generator</h4>
-      <textarea ng-model="main.sequence" class="sequenceForm" name="sequence" rows="4" cols="120" placeholder="Type a sequence here"></textarea>
-
-
-      <div class="buttonDiv">
-        <input type="submit" class="btn btn-primary btn-lg orangeBtn" value="Play">
-        <button type="button" class="btn btn-primary btn-lg orangeBtn" ng-click="saveSequence(main.sequence)">Save</button>
-      </div>
-    </form>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-md-12">
-    <h4 class="whiteFont">Instructions: </h4>
-    <p class="whiteFont">Our proprietary Sequence Generator allows you to hastly compose a song by typing in a series notes and chords</li>
+  <div class="row">
+    <div class="col-md-12">
+      <h4 class="whiteFont">Instructions: </h4>
+      <p class="whiteFont">Our proprietary Sequence Generator allows you to hastly compose a song by typing in a series notes and chords</p>
       <ul class="whiteFont">
         <li>To add a note, simply type in its corresponding letter <i>(i.e. a, b, c, d, e, f, or g)</i></li>
         <li>To add a chord, add a ' character after the note's name <i>(ex: e', b', g')</i></li>
@@ -64,7 +74,8 @@
         <li>The period character represents a rest</li>
         <li>Each note / chord / rest will be treated as a quarter note</li>
         <li>Example Song: Mary Had a Little Lamb</li>
-          <li id="example"><i>C C G G A A G' . F F E E D D C' . G G F F E E D' . G G F F E E D' . C C G G A A G' . F F E E D D C2'</i></li>
+        <li id="example"><i>C C G G A A G' . F F E E D D C' . G G F F E E D' . G G F F E E D' . C C G G A A G' . F F E E D D C2'</i></li>
       </ul>
+    </div>
   </div>
-</div>
+</span>
