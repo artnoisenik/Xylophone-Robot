@@ -12,6 +12,7 @@
 
     <div class="row">
         <div class="col-md-12">
+          
             <form class="form-horizontal" ng-submit='login.handleAuth()'>
               <p class="error">{{login.error}}</p>
                 <div class="form-group">
@@ -23,7 +24,7 @@
                 <div class="form-group">
                     <label for="inputPassword3" class="col-sm-2 control-label inputStuff">Password</label>
                     <div class="col-sm-10">
-                        <input type="password" class="form-control" id="inputPassword3" placeholder="Password" ng-model="login.user.password">
+                      <input type="password" class="form-control" id="inputPassword3" placeholder="Password" ng-model="login.user.password">
                     </div>
                 </div>
                 <div class="form-group">
