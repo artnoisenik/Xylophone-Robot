@@ -133,6 +133,20 @@ span.rz-bubble {
   color: white !important;
 }
 
+.sampleTitle {
+  margin-top: 3%;
+}
+
+.sampleSong {
+  margin-bottom: 3%;
+}
+
+.sampleStuff {
+  border: 1px solid #777;
+  padding-left: 3%;
+  width: 75%;
+}
+
 .dummySignup {
   float: right;
   margin-top: -5%;
