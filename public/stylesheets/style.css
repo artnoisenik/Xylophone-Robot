@@ -111,6 +111,7 @@ div.notes:active {
 
 .orangeBtn:hover {
   background-color: #bfbfbf;
+  color: #ffffff;
 }
 
 .orangeBtn:focus {
@@ -219,6 +220,6 @@ ul.authors {
   color: white;
 }
 
-.songs {
-  color: #ffffff;
+.row-space {
+  margin-top: 40px;
 }
