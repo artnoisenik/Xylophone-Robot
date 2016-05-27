@@ -56,7 +56,6 @@
                 if (res.status !== 200) {
                     console.log(res);
                 } else {
-                    console.log(res.data);
                     return main.allSongs = res.data;
                 }
             });
@@ -64,22 +63,20 @@
                 if (res.status !== 200) {
                     console.log(res);
                 } else {
-                    console.log('user songs', res.data);
                     return main.userSongs = res.data;
                 }
             });
         }
 
-        // main.userSongs = function() {
-        //     BMFactory.getUserSongs().then(function(res) {
-        //         if (res.status !== 200) {
-        //             console.log(res);
-        //         } else {
-        //             console.log(res.data);
-        //             return main.userSongs = res.data;
-        //         }
-        //     });
-        // }
+        main.deleteSong = function(songId) {
+            BMFactory.deleteUserSong(songId).then(function(res) {
+                if (res.status !== 200) {
+                    console.log(res);
+                } else {
+                    activate();
+                }
+            });
+        }
 
         main.logout = function() {
             BMFactory.logOut();
