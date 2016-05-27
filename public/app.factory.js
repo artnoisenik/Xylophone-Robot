@@ -16,6 +16,7 @@
             save,
             fetch,
             destroy,
+            saveSong,
             mySocket: socketFactory(),
         };
 
@@ -24,14 +25,12 @@
         function attemptAuth(authType, user) {
             return $http.post('/api/v1/users' + authType, {user: user})
                 .then(function(response) {
-                    console.log('factory', response);
                     save(response.data.token);
                     currentUser = response.data.id;
 
                     return response;
                 })
                 .catch(function(error) {
-                    console.log(error.data.error);
                     return error.data;
                 });
         }
@@ -39,8 +38,18 @@
         function logOut() {
             currentUser = null;
             destroy();
-            // $window.location.reload;
             $state.go('home');
+        }
+
+        function saveSong(song) {
+            console.log(song);
+            return $http.post('/api/v1/saveSong', {'song': song} )
+                .then(function(response) {
+                    return response;
+                })
+                .catch(function(error) {
+                    return error.data;
+                });
         }
 
         function save(token) {

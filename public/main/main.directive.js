@@ -31,14 +31,14 @@
             main.isLoggedIn = !main.isLoggedIn;
         }
 
-        // main.isAuth = function () {
-        //
-        // };
-
         // SEQUENCE
         main.playSequence = function (sequence) {
           mySocket.emit('sequence', sequence.toUpperCase());
           console.log('in directive', sequence.toUpperCase());
+        }
+
+        main.saveSequence = function(song) {
+            BMFactory.saveSong(song);
         }
 
         // CHORDS

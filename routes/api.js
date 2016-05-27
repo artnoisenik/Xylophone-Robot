@@ -74,6 +74,13 @@ router.post('/users/login', valid.login, function(req, res, next) {
       })
 });
 
+// router.post('/saveSong', function(req, res, next) {
+//   console.log(req.body);
+//   knex('songs')
+//     .
+//   res.end();
+// });
+
 router.get('/users/logout', function (req, res, next) {
   localStorage.clear();
 })

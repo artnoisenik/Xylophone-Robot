@@ -45,8 +45,14 @@
 
       <div class="buttonDiv">
         <input type="submit" class="btn btn-primary btn-lg orangeBtn" value="Play">
-        <button type="button" class="btn btn-primary btn-lg orangeBtn" ng-click="saveSequence(main.sequence)">Save</button>
+        <button type="button" class="btn btn-primary btn-lg orangeBtn" ng-click="main.saveSequence(main.sequence)">Save</button>
       </div>
     </form>
+  </div>
+</div>
+
+<div class="row" ng-show="main.isLoggedIn">
+  <div class="col-md-12">
+    <h2 class="page-header">User Songs:</h2>
   </div>
 </div>
