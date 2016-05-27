@@ -110,14 +110,16 @@
         }
 
         main.saveSequence = function(song) {
-            BMFactory.saveSong(song).then(function(res) {
-                if (res.status !== 200) {
-                    console.log(res);
-                } else {
-                    activate();
-                    main.sequence = {};
-                }
-            });
+            if (song) {
+                BMFactory.saveSong(song).then(function(res) {
+                    if (res.status !== 200) {
+                        console.log(res);
+                    } else {
+                        activate();
+                        main.sequence = {};
+                    }
+                });
+            }
         }
 
         // CHORDS
