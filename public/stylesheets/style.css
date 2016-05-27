@@ -125,9 +125,12 @@ div.notes:active {
   margin-top: 3%;
 }
 
+span.rz-bubble {
+  color: #ffffff !important;
+}
 
 .whiteFont {
-  color: white;
+  color: white !important;
 }
 
 .dummySignup {
