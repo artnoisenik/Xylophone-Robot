@@ -15,6 +15,7 @@
 
             <form name="SignupForm" ng-submit="signup.handleAuth() && SignupForm.$valid" novalidate>
 
+              <small class="error" ng-show="signup.error">{{signup.error}}</small>
                 <div class="error-container" ng-show="SignupForm.email.$dirty && SignupForm.email.$invalid">
                     <small class="error" ng-show="SignupForm.email.$error.minlength">Your email is required to be at least 3 characters and valid email format</small>
                     <small class="error" ng-show="SignupForm.email.$error.maxlength">Your email cannot be longer than 16 characters and valid email format</small>

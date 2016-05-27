@@ -25,7 +25,6 @@
             return BMFactory.attemptAuth(authType, login.user)
                 .then(function(response) {
                   if(response.error){
-
                     login.error = response.error;
                   }else {
                     $state.go('home', null, { reload: true })
