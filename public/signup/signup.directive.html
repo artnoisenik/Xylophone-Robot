@@ -26,11 +26,11 @@
                     <small class="error" ng-show="SignupForm.password.$error.maxlength">Your password cannot be longer than 16 characters</small>
                 </div>
 
-                <div class="form-group" ng-class="{'has-error': SignupForm.email.$invalid && SignupForm.email.$touched, 'has-success': SignupForm.email.$valid && SignupForm.email.$touched}">
+                <div class="form-group" ng-class="{'has-error': SignupForm.email.$invalid && SignupForm.email.$touched}">
                     <label for="exampleInputEmail1" class="col-sm-2 control-label inputStuff">Email</label>
                   <div class="col-sm-10">
 
-                    <input name="email" type="email" class="form-control" id="exampleInputEmail1" placeholder="Email" ng-model="signup.user.email" minlength="3" required>
+                    <input name="email" type="email" class="form-control" id="exampleInputEmail1" placeholder="Email" ng-model="signup.user.email" minlength="3" maxlength="16" required>
                   </div>
                 </div>
 
