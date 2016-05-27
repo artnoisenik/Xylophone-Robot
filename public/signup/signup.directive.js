@@ -23,11 +23,14 @@
         signup.handleAuth = function() {
             console.log(authType);
             return BMFactory.attemptAuth(authType, signup.user)
-                .then(function() {
-                    console.log($scope);
-                    $state.go('home', null, {
-                        reload: true
-                    });
+                .then(function(response) {
+
+                  if(response.error){
+                    signup.error = response.error;
+                    console.log(signup.error);
+                  }else {
+                    $state.go('home', null, { reload: true })
+                  }
                 });
         };
 
