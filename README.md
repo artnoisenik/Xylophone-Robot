@@ -2,9 +2,7 @@ This is a next level project masterminded by Phil, Blake, Brad, San, Brad, and C
 
 Hosted @:
 
-https://boiling-ravine-61587.herokuapp.com/
-
-
+http://robot-xylophone.herokuapp.com/
 
 To run:
 
