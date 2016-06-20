@@ -1,8 +1,8 @@
 # Robot Xylophone
 
-A robotic 8-key xylophone orchestrated by an Arduino Uno and conducted by anyone with an internet connection. See a demonstration here:
-
-**link soon to come**
+A robotic 8-key xylophone orchestrated by an Arduino Uno and conducted by anyone with an internet connection.  
+See a demonstration here:  
+https://www.youtube.com/watch?v=cuGgAqyMJ1M
 
 When it's live, it can be played here:  
 http://robot-xylophone.herokuapp.com/
@@ -20,7 +20,7 @@ To run:
    $ cd public  
    $ bower install  
 
-specs:  
+Specs:  
 Arduino Uno, johnny-five.js, socket.io, node.js, express, JWTs
 
 Sample Song:  
